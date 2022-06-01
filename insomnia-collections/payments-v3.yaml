@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2022-06-01T08:24:23.171Z
+__export_date: 2022-06-01T08:31:33.535Z
 __export_source: insomnia.desktop.app:v2022.3.0
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
@@ -874,7 +874,7 @@ resources:
     _type: request
   - _id: req_e5a0ab97c7d84871a64ee1ad15b9e5ef
     parentId: fld_b61f5962b0184405b6c459b71a042413
-    modified: 1654071850277
+    modified: 1654072279743
     created: 1654071552685
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}/refunds"
@@ -886,7 +886,6 @@ resources:
       text: |-
         {
         "amount_in_minor": 1,
-        "currency": "GBP",
         "reference": "My reference"
         }
     parameters: []
@@ -929,7 +928,7 @@ resources:
     _type: request_group
   - _id: req_7a6f8418b5454e71925f224ad6a2c6cf
     parentId: fld_b61f5962b0184405b6c459b71a042413
-    modified: 1654071847382
+    modified: 1654072148169
     created: 1654071552680
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}/refunds/{% prompt 'Refund ID', '', '', '', false, true %}"
@@ -954,7 +953,7 @@ resources:
     _type: request
   - _id: req_94422e0daeed4dc8a8104b454132b005
     parentId: fld_b61f5962b0184405b6c459b71a042413
-    modified: 1654071848795
+    modified: 1654072149327
     created: 1654071552689
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}/refunds"
