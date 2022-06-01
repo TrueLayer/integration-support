@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2022-05-27T14:49:26.068Z
+__export_date: 2022-06-01T08:12:53.069Z
 __export_source: insomnia.desktop.app:v2022.3.0
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
@@ -1264,7 +1264,7 @@ resources:
     _type: request
   - _id: req_c8bdfe4156f94d16a0c7ae27e5fb1f69
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1650632803738
+    modified: 1653923730462
     created: 1650464194773
     url: "{{ _.ENVIRONMENT_URI }}/mandates"
     name: Create Mandate
@@ -1303,18 +1303,16 @@ resources:
         		"valid_from": "{% now 'iso-8601', '' %}",
         		"valid_to": "2025-01-01T00:00:00.000Z",
         		"maximum_individual_amount": 50,
-        		"periodic_limits": [
-        			{
-        				"maximum_amount": 1000,
-        				"period_alignment": "calendar",
-        				"period_type": "month"
-        			},
-        			{
+        		"periodic_limits": {
+        			"day": {
         				"maximum_amount": 100,
-        				"period_alignment": "calendar",
-        				"period_type": "day"
+        				"period_alignment": "calendar"
+        			},
+        			"month": {
+        				"maximum_amount": 1000,
+        				"period_alignment": "calendar"
         			}
-        		]
+        		}
         	}
         }
     parameters: []
@@ -1691,7 +1689,7 @@ resources:
     _type: api_spec
   - _id: env_32f82cb3e3c641ba86a5c8c730ccdaa7
     parentId: env_8c79365dec4643bbb4c64566d83f8780
-    modified: 1653662085122
+    modified: 1650628375611
     created: 1647879472533
     name: TrueLayer <Sandbox>
     data:
