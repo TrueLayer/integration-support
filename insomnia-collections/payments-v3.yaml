@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2022-06-01T08:12:53.069Z
+__export_date: 2022-06-01T08:24:23.171Z
 __export_source: insomnia.desktop.app:v2022.3.0
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
@@ -65,7 +65,7 @@ resources:
     _type: workspace
   - _id: req_6fc0e9ac772544ab942818fd81300b5e
     parentId: fld_7e168157562c428cbbee8fb513a2142d
-    modified: 1650633620468
+    modified: 1654071740604
     created: 1650464223252
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: Generate PayDirect Token - mandate
@@ -117,7 +117,7 @@ resources:
     _type: request
   - _id: req_17e8ec73a25548ad8657547a526d9cc8
     parentId: fld_685a90a90c564e41bef77672333cd817
-    modified: 1651073166128
+    modified: 1654071715244
     created: 1647879472555
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}"
@@ -152,7 +152,7 @@ resources:
     _type: request_group
   - _id: req_048348aee09146739f5d32e51400e4aa
     parentId: fld_dadb7a5ed8f54883ad8c82214bf7d54f
-    modified: 1651072202868
+    modified: 1654071675263
     created: 1647879472556
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -507,7 +507,7 @@ resources:
     _type: request
   - _id: req_092648dd85784ebca98c9cadf7382d5c
     parentId: fld_928a5e99adc54d1fb159f578cb058cf6
-    modified: 1651072261215
+    modified: 1654071662107
     created: 1647881398287
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -601,7 +601,7 @@ resources:
     _type: request_group
   - _id: req_dabce4e38a0e4a889aa07a1c29f38702
     parentId: fld_2b13d8e4a3c54fe88ba5fcb2b75399e7
-    modified: 1651073182349
+    modified: 1654071663867
     created: 1647879472560
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -679,7 +679,7 @@ resources:
     _type: request_group
   - _id: req_bef2eed3975a4a998d0ed2066df54204
     parentId: fld_2b13d8e4a3c54fe88ba5fcb2b75399e7
-    modified: 1651073033438
+    modified: 1654071664439
     created: 1647879472561
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_dabce4e38a0e4a889aa07a1c29f38702', 'b64::JC5pZA==::46b', 'never', 60
@@ -719,7 +719,7 @@ resources:
     _type: request
   - _id: req_7213698f6dee4eef89c7a1cc6ebddc77
     parentId: fld_2b13d8e4a3c54fe88ba5fcb2b75399e7
-    modified: 1651073041465
+    modified: 1654071666965
     created: 1647879472562
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_dabce4e38a0e4a889aa07a1c29f38702', 'b64::JC5pZA==::46b', 'never', 60
@@ -872,9 +872,114 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
+  - _id: req_e5a0ab97c7d84871a64ee1ad15b9e5ef
+    parentId: fld_b61f5962b0184405b6c459b71a042413
+    modified: 1654071850277
+    created: 1654071552685
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
+      false, true %}/refunds"
+    name: Create the Refund
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        "amount_in_minor": 1,
+        "currency": "GBP",
+        "reference": "My reference"
+        }
+    parameters: []
+    headers:
+      - id: pair_017d1a96c2c64085b45753d167a4fd3e
+        name: Content-Type
+        value: application/json
+      - description: ""
+        disabled: true
+        id: pair_553c6144c2624ca5915a1b95677a46be
+        name: "tl_version    "
+        value: "2"
+      - description: ""
+        disabled: false
+        id: pair_8fadc48a31a0437b8ead98d3fa9cc164
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1650310796752.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_b61f5962b0184405b6c459b71a042413
+    parentId: fld_685a90a90c564e41bef77672333cd817
+    modified: 1654071562096
+    created: 1654071552676
+    name: Refunds
+    description: ""
+    environment: {}
+    environmentPropertyOrder: {}
+    metaSortKey: -1635952895716
+    _type: request_group
+  - _id: req_7a6f8418b5454e71925f224ad6a2c6cf
+    parentId: fld_b61f5962b0184405b6c459b71a042413
+    modified: 1654071847382
+    created: 1654071552680
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
+      false, true %}/refunds/{% prompt 'Refund ID', '', '', '', false, true %}"
+    name: Get Refund
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1650310796702.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_94422e0daeed4dc8a8104b454132b005
+    parentId: fld_b61f5962b0184405b6c459b71a042413
+    modified: 1654071848795
+    created: 1654071552689
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
+      false, true %}/refunds"
+    name: Get Refunds
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1649730415032.375
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_4f37ee072395435fbdfac49a02be4c22
     parentId: fld_b7007702b22241f3bf8d543590a21d8a
-    modified: 1651226290909
+    modified: 1654071737626
     created: 1647879472540
     url: "{{ _.ENVIRONMENT_URI }}/merchant-accounts"
     name: List Merchant Accounts
@@ -908,7 +1013,7 @@ resources:
     _type: request_group
   - _id: req_da3b1969a7a947a69a0badca98bb8938
     parentId: fld_b7007702b22241f3bf8d543590a21d8a
-    modified: 1648551923497
+    modified: 1654071827651
     created: 1647879472541
     url: "{{ _.ENVIRONMENT_URI }}/merchant-accounts/{% prompt 'Merchant Account ID',
       '', '', '', false, true %}"
@@ -933,7 +1038,7 @@ resources:
     _type: request
   - _id: req_aa0f823a0cb04515802998c056e504c7
     parentId: fld_b7007702b22241f3bf8d543590a21d8a
-    modified: 1648551922585
+    modified: 1654071824844
     created: 1647879472542
     url: "{{ _.ENVIRONMENT_URI }}/merchant-accounts/{% prompt 'Merchant Account ID',
       '', '', '', false, true %}/transactions"
@@ -969,7 +1074,7 @@ resources:
     _type: request
   - _id: req_391f9d603b5f41ffb6b38067f6733839
     parentId: fld_b7007702b22241f3bf8d543590a21d8a
-    modified: 1650628407265
+    modified: 1654071774167
     created: 1647879472543
     url: "{{ _.ENVIRONMENT_URI }}/merchant-accounts/{% prompt 'Merchant Account ID',
       '', '', '', false, true %}/sweeping"
@@ -1007,7 +1112,7 @@ resources:
     _type: request
   - _id: req_79c42735bb0d468b806211e40b08304b
     parentId: fld_b7007702b22241f3bf8d543590a21d8a
-    modified: 1648650850664
+    modified: 1654071734088
     created: 1648552447529
     url: "{{ _.ENVIRONMENT_URI }}/merchant-accounts/{% prompt 'Merchant Account ID',
       '', '', '', false, true %}/sweeping"
@@ -1045,7 +1150,7 @@ resources:
     _type: request
   - _id: req_59900463b20e45eeaf423d52601df9a6
     parentId: fld_b7007702b22241f3bf8d543590a21d8a
-    modified: 1648554768189
+    modified: 1654071735462
     created: 1648552054389
     url: "{{ _.ENVIRONMENT_URI }}/merchant-accounts/{% prompt 'Merchant Account ID',
       '', '', '', false, true %}/sweeping"
@@ -1078,7 +1183,7 @@ resources:
     _type: request
   - _id: req_59acb1f124cf41b49ed115b7dd778391
     parentId: fld_b7007702b22241f3bf8d543590a21d8a
-    modified: 1648553308064
+    modified: 1654071736527
     created: 1647879472544
     url: "{{ _.ENVIRONMENT_URI }}/merchant-accounts/{% prompt 'Merchant Account ID',
       '', '', '', false, true %}/sweeping"
@@ -1111,7 +1216,7 @@ resources:
     _type: request
   - _id: req_6bf4d3f784c54409a5e0407f0a2034ca
     parentId: fld_cce93eee73534e38aa36f02f463ccd62
-    modified: 1651072196616
+    modified: 1654071834485
     created: 1647879472546
     url: "{{ _.ENVIRONMENT_URI }}/payouts"
     name: Create Payout to Payment Source
@@ -1171,7 +1276,7 @@ resources:
     _type: request_group
   - _id: req_50f8a680231b407fb789909c189ea125
     parentId: fld_cce93eee73534e38aa36f02f463ccd62
-    modified: 1650634314371
+    modified: 1654071833283
     created: 1647879472548
     url: "{{ _.ENVIRONMENT_URI }}/payouts"
     name: Create Payout to External Account
@@ -1224,7 +1329,7 @@ resources:
     _type: request
   - _id: req_d357b57e488041bfb1c79c3dbcf9a01c
     parentId: fld_cce93eee73534e38aa36f02f463ccd62
-    modified: 1650634316262
+    modified: 1654071831268
     created: 1647879472547
     url: "{{ _.ENVIRONMENT_URI }}/payouts/{% prompt 'PayOut ID', '', '', '', false,
       true %}"
@@ -1689,7 +1794,7 @@ resources:
     _type: api_spec
   - _id: env_32f82cb3e3c641ba86a5c8c730ccdaa7
     parentId: env_8c79365dec4643bbb4c64566d83f8780
-    modified: 1650628375611
+    modified: 1654071609672
     created: 1647879472533
     name: TrueLayer <Sandbox>
     data:
@@ -1717,7 +1822,7 @@ resources:
     _type: environment
   - _id: env_2dcd76732d304b21a925a108618bf92d
     parentId: env_8c79365dec4643bbb4c64566d83f8780
-    modified: 1650628374916
+    modified: 1654071608410
     created: 1647974620406
     name: TrueLayer <Production>
     data:
