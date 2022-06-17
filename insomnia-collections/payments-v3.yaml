@@ -188,7 +188,7 @@ resources:
         		"type": "bank_transfer",
         		"beneficiary": {
         			"type": "merchant_account",
-        			"name": "Merchant Account name",
+        			"account_holder_name": "Merchant name",
         			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
         		}
         	},
