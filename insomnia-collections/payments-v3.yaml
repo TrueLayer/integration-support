@@ -1,11 +1,11 @@
 _type: export
 __export_format: 4
-__export_date: 2022-06-01T08:31:33.535Z
+__export_date: 2022-06-17T14:53:22.594Z
 __export_source: insomnia.desktop.app:v2022.3.0
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
     parentId: fld_7e168157562c428cbbee8fb513a2142d
-    modified: 1651226280324
+    modified: 1655477539067
     created: 1647879472539
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: Generate Access Token
@@ -65,10 +65,10 @@ resources:
     _type: workspace
   - _id: req_6fc0e9ac772544ab942818fd81300b5e
     parentId: fld_7e168157562c428cbbee8fb513a2142d
-    modified: 1654071740604
+    modified: 1655477527825
     created: 1650464223252
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
-    name: Generate PayDirect Token - mandate
+    name: Generate Access Token - Mandate
     description: ""
     method: POST
     body:
@@ -152,7 +152,7 @@ resources:
     _type: request_group
   - _id: req_048348aee09146739f5d32e51400e4aa
     parentId: fld_dadb7a5ed8f54883ad8c82214bf7d54f
-    modified: 1654071675263
+    modified: 1655477565900
     created: 1647879472556
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -162,7 +162,7 @@ resources:
       mimeType: application/json
       text: >-
         {
-        	"amount_in_minor": 1990,
+        	"amount_in_minor": 1,
         	"currency": "GBP",
         	"payment_method": {
         		"provider_selection": {
@@ -242,7 +242,7 @@ resources:
     _type: request_group
   - _id: req_32bb6380796a48c585096b7eb38b735c
     parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1651226269583
+    modified: 1655477504226
     created: 1647879472551
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -327,7 +327,7 @@ resources:
     _type: request_group
   - _id: req_968d84de2d464b25878ee2410f5d6d40
     parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1651226269015
+    modified: 1655477503425
     created: 1647879472551
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_32bb6380796a48c585096b7eb38b735c', 'b64::JC5pZA==::46b', 'never', 60
@@ -507,7 +507,7 @@ resources:
     _type: request
   - _id: req_092648dd85784ebca98c9cadf7382d5c
     parentId: fld_928a5e99adc54d1fb159f578cb058cf6
-    modified: 1654071662107
+    modified: 1655477565080
     created: 1647881398287
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -520,26 +520,27 @@ resources:
         	"amount_in_minor": 1,
         	"currency": "GBP",
         	"payment_method": {
-        		"type": "bank_transfer",
-        		"statement_reference": "StatRefTest",
         		"provider_selection": {
-        			"type": "user_selected",
-        			"countries": [
-        				"GB"
-        			],
-        			"release_channel": "public_beta",
-        			"customer_segments": [
-        				"retail"
-        			],
-        			"provider_ids": [
-        				"mock-payments-gb-redirect"
-        			],
-        			"excludes": {
+        			"filter": {
+        				"countries": [
+        					"GB"
+        				],
+        				"release_channel": "private_beta",
+        				"customer_segments": [
+        					"retail"
+        				],
         				"provider_ids": [
-        					"ob-exclude-this-bank"
-        				]
-        			}
+        					"mock-payments-gb-redirect"
+        				],
+        				"excludes": {
+        					"provider_ids": [
+        						"ob-exclude-this-bank"
+        					]
+        				}
+        			},
+        			"type": "user_selected"
         		},
+        		"type": "bank_transfer",
         		"beneficiary": {
         			"type": "external_account",
         			"account_holder_name": "Beneficiary Name",
