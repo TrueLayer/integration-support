@@ -1,11 +1,11 @@
 _type: export
 __export_format: 4
-__export_date: 2022-06-17T15:06:14.935Z
-__export_source: insomnia.desktop.app:v2022.3.0
+__export_date: 2022-06-30T13:02:42.834Z
+__export_source: insomnia.desktop.app:v2022.4.0
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
     parentId: fld_7e168157562c428cbbee8fb513a2142d
-    modified: 1655477539067
+    modified: 1656593645458
     created: 1647879472539
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: Generate Access Token
@@ -65,7 +65,7 @@ resources:
     _type: workspace
   - _id: req_6fc0e9ac772544ab942818fd81300b5e
     parentId: fld_7e168157562c428cbbee8fb513a2142d
-    modified: 1655477527825
+    modified: 1656593645866
     created: 1650464223252
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: Generate Access Token - Mandate
@@ -1369,7 +1369,7 @@ resources:
     _type: request
   - _id: req_c8bdfe4156f94d16a0c7ae27e5fb1f69
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1653923730462
+    modified: 1656593805386
     created: 1650464194773
     url: "{{ _.ENVIRONMENT_URI }}/mandates"
     name: Create Mandate
@@ -1386,6 +1386,9 @@ resources:
         				"GB"
         			],
         			"release_channel": "private_beta"
+        		},
+        		"provider_selection": {
+        			"type": "user_selected"
         		},
         		"beneficiary": {
         			"type": "external_account",
@@ -1465,7 +1468,7 @@ resources:
     _type: request_group
   - _id: req_2ffb2eca14074cedb0dd4a4336c791de
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1650632800322
+    modified: 1656593781081
     created: 1650464194781
     url: "{{ _.ENVIRONMENT_URI }}/mandates/{% response 'body',
       'req_c8bdfe4156f94d16a0c7ae27e5fb1f69', 'b64::JC5pZA==::46b', 'never', 60
@@ -1507,7 +1510,7 @@ resources:
     _type: request
   - _id: req_d7726231bf3f4aa0bcafba4d9000a494
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1650632802561
+    modified: 1656593654492
     created: 1650464194779
     url: "{{ _.ENVIRONMENT_URI }}/mandates/{% response 'body',
       'req_c8bdfe4156f94d16a0c7ae27e5fb1f69', 'b64::JC5pZA==::46b', 'never', 60
