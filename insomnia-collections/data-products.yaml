@@ -858,7 +858,7 @@ resources:
           "pending": true,
           "balance": true,
         	"webhook_uri": "{{ _.webhook_uri }}"
-        } 
+        }
     parameters: []
     headers:
       - name: Content-Type
@@ -906,7 +906,7 @@ resources:
           "pending": true,
           "balance": true,
           "webhook_uri": "https://de57052f34fd.ngrok.io/hook"
-        } 
+        }
     parameters: []
     headers:
       - name: Content-Type
@@ -961,8 +961,8 @@ resources:
       data_api: api.truelayer.com
       auth_api: auth.truelayer.com
       auth_analytics_api: client-tracking.truelayer.com
-      client_id: jeshtruelayer-4007ef
-      client_secret: aad472a3-da3b-4afb-b9b0-cb42c0c5b9a1
+      client_id: YOUR LIVE CLIENT ID
+      client_secret: YOUR LIVE CLIENT SECRET
       redirect_uri: https://console.truelayer.com/redirect-page
       webhook_uri: ""
     dataPropertyOrder:
@@ -987,8 +987,8 @@ resources:
       data_api: api.truelayer-sandbox.com
       auth_api: auth.truelayer-sandbox.com
       auth_analytics_api: client-tracking.truelayer-sandbox.com
-      client_id: sandbox-jeshtruelayer-4007ef
-      client_secret: 757409cc-b8b1-4ec9-87e2-63733a04a153
+      client_id: YOUR SANDBOX CLIENT ID
+      client_secret: YOUR SANDBOX CLIENT SECRET
       redirect_uri: https://console.truelayer-sandbox.com/redirect-page
       webhook_uri: ""
     dataPropertyOrder:
