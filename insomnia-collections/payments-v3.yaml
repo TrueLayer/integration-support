@@ -1,11 +1,11 @@
 _type: export
 __export_format: 4
-__export_date: 2022-06-30T13:02:42.834Z
-__export_source: insomnia.desktop.app:v2022.4.0
+__export_date: 2022-07-14T15:21:30.155Z
+__export_source: insomnia.desktop.app:v2022.4.2
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
     parentId: fld_7e168157562c428cbbee8fb513a2142d
-    modified: 1656593645458
+    modified: 1657812001190
     created: 1647879472539
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: Generate Access Token
@@ -117,7 +117,7 @@ resources:
     _type: request
   - _id: req_17e8ec73a25548ad8657547a526d9cc8
     parentId: fld_685a90a90c564e41bef77672333cd817
-    modified: 1654071715244
+    modified: 1657812023884
     created: 1647879472555
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}"
@@ -152,7 +152,7 @@ resources:
     _type: request_group
   - _id: req_048348aee09146739f5d32e51400e4aa
     parentId: fld_dadb7a5ed8f54883ad8c82214bf7d54f
-    modified: 1655478352982
+    modified: 1657812025821
     created: 1647879472556
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -242,7 +242,7 @@ resources:
     _type: request_group
   - _id: req_32bb6380796a48c585096b7eb38b735c
     parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1655477504226
+    modified: 1657812027397
     created: 1647879472551
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -327,7 +327,7 @@ resources:
     _type: request_group
   - _id: req_968d84de2d464b25878ee2410f5d6d40
     parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1655477503425
+    modified: 1657811899899
     created: 1647879472551
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_32bb6380796a48c585096b7eb38b735c', 'b64::JC5pZA==::46b', 'never', 60
@@ -367,7 +367,7 @@ resources:
     _type: request
   - _id: req_dd5c3dcb7ec14dc48ac519de61888226
     parentId: fld_08f631a0fec44e079ed99cb675b2a40b
-    modified: 1651226299067
+    modified: 1657812030452
     created: 1647879472553
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create the Payment
@@ -430,7 +430,7 @@ resources:
     _type: request_group
   - _id: req_925f0bb447d64c95a282fdcb6fe97096
     parentId: fld_08f631a0fec44e079ed99cb675b2a40b
-    modified: 1651226306732
+    modified: 1657811986867
     created: 1647879472553
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_dd5c3dcb7ec14dc48ac519de61888226', 'b64::JC5pZA==::46b', 'never', 60
@@ -470,7 +470,7 @@ resources:
     _type: request
   - _id: req_78e5e7987f634ba0970b4f4fea5f076a
     parentId: fld_08f631a0fec44e079ed99cb675b2a40b
-    modified: 1651226316775
+    modified: 1657811987455
     created: 1647879472554
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_dd5c3dcb7ec14dc48ac519de61888226', 'b64::JC5pZA==::46b', 'never', 60
@@ -507,7 +507,7 @@ resources:
     _type: request
   - _id: req_092648dd85784ebca98c9cadf7382d5c
     parentId: fld_928a5e99adc54d1fb159f578cb058cf6
-    modified: 1655478343453
+    modified: 1657812034145
     created: 1647881398287
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -602,7 +602,7 @@ resources:
     _type: request_group
   - _id: req_dabce4e38a0e4a889aa07a1c29f38702
     parentId: fld_2b13d8e4a3c54fe88ba5fcb2b75399e7
-    modified: 1654071663867
+    modified: 1657812060667
     created: 1647879472560
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -625,8 +625,8 @@ resources:
         			"reference": "RefTest-1",
         			"account_identifier": {
         				"type": "sort_code_account_number",
-        				"sort_code": "040004",
-        				"account_number": "72195665"
+        				"sort_code": "123456",
+        				"account_number": "12345678"
         			}
         		}
         	},
@@ -680,7 +680,7 @@ resources:
     _type: request_group
   - _id: req_bef2eed3975a4a998d0ed2066df54204
     parentId: fld_2b13d8e4a3c54fe88ba5fcb2b75399e7
-    modified: 1654071664439
+    modified: 1657811967002
     created: 1647879472561
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_dabce4e38a0e4a889aa07a1c29f38702', 'b64::JC5pZA==::46b', 'never', 60
@@ -720,7 +720,7 @@ resources:
     _type: request
   - _id: req_7213698f6dee4eef89c7a1cc6ebddc77
     parentId: fld_2b13d8e4a3c54fe88ba5fcb2b75399e7
-    modified: 1654071666965
+    modified: 1657811968072
     created: 1647879472562
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_dabce4e38a0e4a889aa07a1c29f38702', 'b64::JC5pZA==::46b', 'never', 60
@@ -757,7 +757,7 @@ resources:
     _type: request
   - _id: req_29f3b81c7b53432bb8abdd4abca785e2
     parentId: fld_3491aae2efcc469785c45e3ad9b11a80
-    modified: 1650632770525
+    modified: 1657812055934
     created: 1647879472564
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -835,7 +835,7 @@ resources:
     _type: request_group
   - _id: req_8af87036f7b9457da03e716d26472f7a
     parentId: fld_3491aae2efcc469785c45e3ad9b11a80
-    modified: 1650632781223
+    modified: 1657811972226
     created: 1647879472564
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_29f3b81c7b53432bb8abdd4abca785e2', 'b64::JC5pZA==::46b', 'never', 60
@@ -1216,7 +1216,7 @@ resources:
     _type: request
   - _id: req_6bf4d3f784c54409a5e0407f0a2034ca
     parentId: fld_cce93eee73534e38aa36f02f463ccd62
-    modified: 1654071834485
+    modified: 1657811993399
     created: 1647879472546
     url: "{{ _.ENVIRONMENT_URI }}/payouts"
     name: Create Payout to Payment Source
@@ -1369,7 +1369,7 @@ resources:
     _type: request
   - _id: req_c8bdfe4156f94d16a0c7ae27e5fb1f69
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1656593805386
+    modified: 1657811997952
     created: 1650464194773
     url: "{{ _.ENVIRONMENT_URI }}/mandates"
     name: Create Mandate
