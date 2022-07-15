@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2022-07-14T15:21:30.155Z
+__export_date: 2022-07-15T11:49:15.981Z
 __export_source: insomnia.desktop.app:v2022.4.2
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
@@ -132,6 +132,39 @@ resources:
         'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
       type: bearer
     metaSortKey: -1647883794702
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9ca271a494db4427a451601202bbef97
+    parentId: fld_685a90a90c564e41bef77672333cd817
+    modified: 1657885324100
+    created: 1657884889075
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
+      false, true %}/actions/cancel"
+    name: Cancel Payment
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - id: pair_7c8e00b083cd4aad9c620b508f98ffd1
+        name: Content-Type
+        value: application/json
+      - id: pair_602ca6c94aec43dbb42d6d4c60c1df9e
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1647883794677
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
