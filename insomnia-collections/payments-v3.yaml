@@ -375,7 +375,790 @@ resources:
           "provider_selection": {},
         	"redirect": {
             "return_uri": "{{ _.RETURN_URI }}"
-          }
+          },
+        	"consent": {}
+        }
+    parameters: []
+    headers:
+      - id: pair_0b18789451764fa894e064ba24319128
+        name: Content-Type
+        value: application/json
+      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1647885074701.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_92b9d5eb325842a881fb2afba1580f33
+    parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
+    modified: 1656629157479
+    created: 1656322628945
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_32bb6380796a48c585096b7eb38b735c', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow/actions/consent"
+    name: Submit Consent
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: "{}"
+    parameters: []
+    headers:
+      - id: pair_0b18789451764fa894e064ba24319128
+        name: Content-Type
+        value: application/json
+      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1647885074651.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_dd5c3dcb7ec14dc48ac519de61888226
+    parentId: fld_7af3fc5a5f3f4f7884316a19c0376eb0
+    modified: 1656628644928
+    created: 1647879472553
+    url: "{{ _.ENVIRONMENT_URI }}/payments"
+    name: Create the Payment
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"amount_in_minor": 1,
+        	"currency": "GBP",
+        	"payment_method": {
+        		"type": "bank_transfer",
+        		"provider_selection": {
+        			"type": "user_selected"
+        		},
+        		"beneficiary": {
+        			"type": "merchant_account",
+        			"name": "Merchant Account name",
+        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
+        		}
+        	},
+        	"user": {
+        		"id": "{% uuid 'v4' %}",
+        		"name": "{% prompt 'Name', '', '', '', false, true %}",
+        		"email": "{% prompt 'User Email', '', '', '', false, true %}",
+        		"phone": "{% prompt 'Phone', 'Please prefix with + and country code', '', '', false, true %}"
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_f069c547d8b342218f3701fe8ed1fcff
+        name: Content-Type
+        value: application/json
+      - id: pair_6505fd0840c049e4b31557790e5af161
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871887052.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_7af3fc5a5f3f4f7884316a19c0376eb0
+    parentId: fld_08f631a0fec44e079ed99cb675b2a40b
+    modified: 1656323430836
+    created: 1656323430836
+    name: Provider requiring redirect
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1656323430836
+    _type: request_group
+  - _id: fld_08f631a0fec44e079ed99cb675b2a40b
+    parentId: fld_06413a707d944cefbd84d226bbc6727a
+    modified: 1647885056123
+    created: 1647885056123
+    name: When the PSU is required to select a provider
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1647885056123
+    _type: request_group
+  - _id: req_925f0bb447d64c95a282fdcb6fe97096
+    parentId: fld_7af3fc5a5f3f4f7884316a19c0376eb0
+    modified: 1656628639556
+    created: 1647879472553
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_dd5c3dcb7ec14dc48ac519de61888226', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow"
+    name: Start Authorization Flow
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "provider_selection": {},
+        	"redirect": {
+            "return_uri": "{{ _.RETURN_URI }}"
+          },
+        	"consent": {}
+        }
+    parameters: []
+    headers:
+      - id: pair_87edbef26ebf46b1a6d5ec3bc7975333
+        name: Content-Type
+        value: application/json
+      - id: pair_dd071d987a8a459195b9d38261f75034
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871887002.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_78e5e7987f634ba0970b4f4fea5f076a
+    parentId: fld_7af3fc5a5f3f4f7884316a19c0376eb0
+    modified: 1656628640308
+    created: 1647879472554
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_dd5c3dcb7ec14dc48ac519de61888226', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow/actions/provider-selection"
+    name: Submit Provider Selection
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "provider_id": "mock-payments-gb-redirect"
+        }
+    parameters: []
+    headers:
+      - id: pair_eecb6f7f55d54b9a8a9d6ccc5d67d96b
+        name: Content-Type
+        value: application/json
+      - id: pair_bee4bcbc8d09415c98605075f4777144
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871886952.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ec39063a8d6943b492e65e996f50532d
+    parentId: fld_7af3fc5a5f3f4f7884316a19c0376eb0
+    modified: 1656628642652
+    created: 1656322983840
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_dd5c3dcb7ec14dc48ac519de61888226', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow/actions/consent"
+    name: Submit Consent
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: "{}"
+    parameters: []
+    headers:
+      - id: pair_0b18789451764fa894e064ba24319128
+        name: Content-Type
+        value: application/json
+      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871886902.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_59c7d91fabdc4c3ab625dff67114220d
+    parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
+    modified: 1656628578521
+    created: 1656323493633
+    url: "{{ _.ENVIRONMENT_URI }}/payments"
+    name: Create the Payment
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"amount_in_minor": 1,
+        	"currency": "EUR",
+        	"payment_method": {
+        		"type": "bank_transfer",
+        		"provider_selection": {
+        			"type": "user_selected"
+        		},
+        		"beneficiary": {
+        			"type": "merchant_account",
+        			"name": "Merchant Account name",
+        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your EUR merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
+        		}
+        	},
+        	"user": {
+        		"id": "{% uuid 'v4' %}",
+        		"name": "{% prompt 'Name', '', '', '', false, true %}",
+        		"email": "{% prompt 'User Email', '', '', '', false, true %}",
+        		"phone": "{% prompt 'Phone', 'Please prefix with + and country code', '', '', false, true %}"
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_f069c547d8b342218f3701fe8ed1fcff
+        name: Content-Type
+        value: application/json
+      - id: pair_6505fd0840c049e4b31557790e5af161
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871887052.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_9ee0cea4bfa0460c84410d4442ecf244
+    parentId: fld_08f631a0fec44e079ed99cb675b2a40b
+    modified: 1656323493629
+    created: 1656323493629
+    name: Provider requiring form without redirect
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1654388554205
+    _type: request_group
+  - _id: req_f575088e4d0f4d558d1fcfb29f4fb527
+    parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
+    modified: 1656628576099
+    created: 1656323493631
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_59c7d91fabdc4c3ab625dff67114220d', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow"
+    name: Start Authorization Flow
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "provider_selection": {},
+        	"redirect": {
+            "return_uri": "{{ _.RETURN_URI }}"
+          },
+        	"consent": {},
+        	"form": {
+        		"input_types": [
+        			"text",
+        			"text_with_image",
+        			"select"
+        		]
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_87edbef26ebf46b1a6d5ec3bc7975333
+        name: Content-Type
+        value: application/json
+      - id: pair_dd071d987a8a459195b9d38261f75034
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871887002.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_5f8e14a32872493da3dc320cc1894a26
+    parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
+    modified: 1656628575358
+    created: 1656323493635
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_59c7d91fabdc4c3ab625dff67114220d', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow/actions/provider-selection"
+    name: Submit Provider Selection
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "provider_id": "mock-payments-de-embedded"
+        }
+    parameters: []
+    headers:
+      - id: pair_eecb6f7f55d54b9a8a9d6ccc5d67d96b
+        name: Content-Type
+        value: application/json
+      - id: pair_bee4bcbc8d09415c98605075f4777144
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871886990
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6a434a5b4e824620b65e8f13e0f3ccf3
+    parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
+    modified: 1656628574454
+    created: 1656323493636
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_59c7d91fabdc4c3ab625dff67114220d', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow/actions/consent"
+    name: Submit Consent
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: "{}"
+    parameters: []
+    headers:
+      - id: pair_0b18789451764fa894e064ba24319128
+        name: Content-Type
+        value: application/json
+      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871886977.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_620f58410f7d4ea68b75d752a3b94ceb
+    parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
+    modified: 1656628573555
+    created: 1656323702317
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_59c7d91fabdc4c3ab625dff67114220d', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow/actions/form"
+    name: Submit Form 1
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "inputs": {
+        		"remitter-name": "{% prompt 'Remitter Name', '', '', '', false, true %}",
+        		"remitter-iban": "{% prompt 'Remitter IBAN', '', '', '', false, true %}",
+        		"psu-id": "test_username",
+        		"psu-password": "test_password"
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_0b18789451764fa894e064ba24319128
+        name: Content-Type
+        value: application/json
+      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871886965
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a46c86e0893e4217863f2b10a2bcbdc1
+    parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
+    modified: 1656326742432
+    created: 1656323881666
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_59c7d91fabdc4c3ab625dff67114220d', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow/actions/form"
+    name: Submit Form 2
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "inputs": {
+        		"embedded-auth-flow-sca-select": "PhotoTan"
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_0b18789451764fa894e064ba24319128
+        name: Content-Type
+        value: application/json
+      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871886958.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ed48ff7c72ef4851ada54c866e16bd63
+    parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
+    modified: 1656326745610
+    created: 1656323912529
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_59c7d91fabdc4c3ab625dff67114220d', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow/actions/form"
+    name: Submit Form 3
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "inputs": {
+        		"embedded-auth-flow-photo-tan-input": "test_executed"
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_0b18789451764fa894e064ba24319128
+        name: Content-Type
+        value: application/json
+      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635871886955.625
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_092648dd85784ebca98c9cadf7382d5c
+    parentId: fld_928a5e99adc54d1fb159f578cb058cf6
+    modified: 1657895172462
+    created: 1647881398287
+    url: "{{ _.ENVIRONMENT_URI }}/payments"
+    name: Create Payment
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"amount_in_minor": 1,
+        	"currency": "GBP",
+        	"payment_method": {
+        		"provider_selection": {
+        			"filter": {
+        				"countries": [
+        					"GB"
+        				],
+        				"release_channel": "private_beta",
+        				"customer_segments": [
+        					"retail"
+        				],
+        				"provider_ids": [
+        					"mock-payments-gb-redirect"
+        				],
+        				"excludes": {
+        					"provider_ids": [
+        						"ob-exclude-this-bank"
+        					]
+        				}
+        			},
+        			"type": "user_selected"
+        		},
+        		"type": "bank_transfer",
+        		"beneficiary": {
+        			"type": "external_account",
+        			"account_holder_name": "Beneficiary Name",
+        			"reference": "RefTest",
+        			"account_identifier": {
+        				"type": "sort_code_account_number",
+        				"sort_code": "123456",
+        				"account_number": "12345678"
+        			}
+        		}
+        	},
+        	"user": {
+        		"id": "{% uuid 'v4' %}",
+        		"name": "{% prompt 'Name', '', '', '', false, true %}",
+        		"email": "{% prompt 'User Email', '', '', '', false, true %}",
+        		"phone": "{% prompt 'Phone', 'Please prefix with + and country code', '', '', false, true %}"
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_7c8e00b083cd4aad9c620b508f98ffd1
+        name: Content-Type
+        value: application/json
+      - id: pair_602ca6c94aec43dbb42d6d4c60c1df9e
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1612882494398.3125
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_928a5e99adc54d1fb159f578cb058cf6
+    parentId: fld_78e13cc91ada4c35889ef5f4f4333975
+    modified: 1647883897616
+    created: 1647881156231
+    name: Using TrueLayer's Hosted Payment Page for provider selection
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1647882182551
+    _type: request_group
+  - _id: fld_78e13cc91ada4c35889ef5f4f4333975
+    parentId: fld_685a90a90c564e41bef77672333cd817
+    modified: 1647881114665
+    created: 1647879472550
+    name: Create a payment to an External Account
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1635952895766
+    _type: request_group
+  - _id: req_dabce4e38a0e4a889aa07a1c29f38702
+    parentId: fld_cb0673615fcb494ebea955af72dd51f5
+    modified: 1657895168174
+    created: 1647879472560
+    url: "{{ _.ENVIRONMENT_URI }}/payments"
+    name: Create Payment
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"amount_in_minor": 1,
+        	"currency": "GBP",
+        	"payment_method": {
+        		"type": "bank_transfer",
+        		"provider_selection": {
+        			"type": "user_selected"
+        		},
+        		"beneficiary": {
+        			"type": "external_account",
+        			"account_holder_name": "Beneficiary Name",
+        			"reference": "RefTest-1",
+        			"account_identifier": {
+        				"type": "sort_code_account_number",
+        				"sort_code": "123456",
+        				"account_number": "12345678"
+        			}
+        		}
+        	},
+        	"user": {
+        		"id": "{% uuid 'v4' %}",
+        		"name": "{% prompt 'Name', '', '', '', false, true %}",
+        		"email": "{% prompt 'User Email', '', '', '', false, true %}",
+        		"phone": "{% prompt 'Phone', 'Please prefix with + and country code', '', '', false, true %}"
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_8a0ded88a4814fca885bf44b2e068212
+        name: Content-Type
+        value: application/json
+      - id: pair_0653d93f26f6428f9bdad33a20164dfb
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1641877034776.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_cb0673615fcb494ebea955af72dd51f5
+    parentId: fld_2b13d8e4a3c54fe88ba5fcb2b75399e7
+    modified: 1656324168651
+    created: 1656324168651
+    name: Provider requiring redirect
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1656324168651
+    _type: request_group
+  - _id: fld_2b13d8e4a3c54fe88ba5fcb2b75399e7
+    parentId: fld_dd09d1c7f3324a3b8a321045991130e8
+    modified: 1647977926365
+    created: 1647882357056
+    name: When the PSU is required to select a provider
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1647882357056
+    _type: request_group
+  - _id: fld_dd09d1c7f3324a3b8a321045991130e8
+    parentId: fld_78e13cc91ada4c35889ef5f4f4333975
+    modified: 1647882182501
+    created: 1647882182501
+    name: Using your own UI for Provider Selection
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1647882182501
+    _type: request_group
+  - _id: req_bef2eed3975a4a998d0ed2066df54204
+    parentId: fld_cb0673615fcb494ebea955af72dd51f5
+    modified: 1656629146336
+    created: 1647879472561
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_dabce4e38a0e4a889aa07a1c29f38702', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow"
+    name: Start Authorization Flow
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "provider_selection": {},
+        	"redirect": {
+            "return_uri": "{{ _.RETURN_URI }}"
+          },
+        	"consent": {}
+        }
+    parameters: []
+    headers:
+      - id: pair_3ae1762972674f7e9f6f51ce0d262ea4
+        name: Content-Type
+        value: application/json
+      - id: pair_7f09bcd5230b4636b9c7e8997ac2ed08
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1641877034726.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7213698f6dee4eef89c7a1cc6ebddc77
+    parentId: fld_cb0673615fcb494ebea955af72dd51f5
+    modified: 1656629108812
+    created: 1647879472562
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_dabce4e38a0e4a889aa07a1c29f38702', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow/actions/provider-selection"
+    name: Submit Provider selection
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"provider_id": "mock-payments-gb-redirect"
         }
     parameters: []
     headers:
@@ -790,7 +1573,7 @@ resources:
     _type: request
   - _id: req_29f3b81c7b53432bb8abdd4abca785e2
     parentId: fld_3491aae2efcc469785c45e3ad9b11a80
-    modified: 1657812055934
+    modified: 1657895173399
     created: 1647879472564
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -1402,7 +2185,7 @@ resources:
     _type: request
   - _id: req_c8bdfe4156f94d16a0c7ae27e5fb1f69
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1657811997952
+    modified: 1657895156227
     created: 1650464194773
     url: "{{ _.ENVIRONMENT_URI }}/mandates"
     name: Create Mandate
@@ -1738,7 +2521,7 @@ resources:
     _type: request
   - _id: req_f44b83baefe4488f82ef2955a71e75e0
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1650628605853
+    modified: 1657895153951
     created: 1650464194777
     url: "{{ _.ENVIRONMENT_URI }}/mandates/{% response 'body',
       'req_0ecd8ece5fb041ac8dc2244b12b97126', 'b64::JC5pZA==::46b', 'never', 60
