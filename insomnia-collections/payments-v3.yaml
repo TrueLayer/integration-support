@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2022-07-21T15:54:35.105Z
+__export_date: 2022-07-21T15:56:19.908Z
 __export_source: insomnia.desktop.app:v2022.4.2
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
@@ -1795,7 +1795,7 @@ resources:
     _type: request
   - _id: req_c8bdfe4156f94d16a0c7ae27e5fb1f69
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1658418195126
+    modified: 1658418961956
     created: 1650464194773
     url: "{{ _.ENVIRONMENT_URI }}/mandates"
     name: Create Mandate (external account)
@@ -2205,7 +2205,7 @@ resources:
     _type: request
   - _id: req_9f4b0ff4d37943008187c75ba2ddf44f
     parentId: fld_2f845599836240ddb7a1e80ee5e2a6af
-    modified: 1658418755804
+    modified: 1658418968059
     created: 1658417509484
     url: "{{ _.ENVIRONMENT_URI }}/mandates"
     name: Create Mandate (merchant account)
@@ -2234,9 +2234,10 @@ resources:
         	},
         	"currency": "GBP",
         	"user": {
-        		"id": "e33d761f-f1dc-47a7-804e-86e2e1d915eb",
+        		"id": "{% uuid 'v4' %}",
         		"name": "{% prompt 'Name', '', '', '', false, true %}",
-        		"email": "{% prompt 'User Email', '', '', '', false, true %}"
+        		"email": "{% prompt 'User Email', '', '', '', false, true %}",
+        		"phone": "{% prompt 'Phone', 'Please prefix with + and country code', '', '', false, true %}"
         	},
         	"constraints": {
         		"valid_from": "{% now 'iso-8601', '' %}",
