@@ -1,11 +1,11 @@
 _type: export
 __export_format: 4
-__export_date: 2022-07-21T15:56:19.908Z
+__export_date: 2022-07-27T16:41:51.356Z
 __export_source: insomnia.desktop.app:v2022.4.2
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
     parentId: fld_7e168157562c428cbbee8fb513a2142d
-    modified: 1657812001190
+    modified: 1658940070851
     created: 1647879472539
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: Generate Access Token
@@ -117,7 +117,7 @@ resources:
     _type: request
   - _id: req_17e8ec73a25548ad8657547a526d9cc8
     parentId: fld_685a90a90c564e41bef77672333cd817
-    modified: 1658404618009
+    modified: 1658940073437
     created: 1647879472555
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}"
@@ -152,7 +152,7 @@ resources:
     _type: request_group
   - _id: req_9ca271a494db4427a451601202bbef97
     parentId: fld_685a90a90c564e41bef77672333cd817
-    modified: 1657885324100
+    modified: 1658940074093
     created: 1657884889075
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}/actions/cancel"
@@ -273,104 +273,9 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1647883794652
     _type: request_group
-  - _id: req_968d84de2d464b25878ee2410f5d6d40
-    parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1657811899899
-    created: 1647879472551
-    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
-      'req_32bb6380796a48c585096b7eb38b735c', 'b64::JC5pZA==::46b', 'never', 60
-      %}/authorization-flow"
-    name: Start Authorization Flow
-    description: ""
-    method: POST
-    body:
-      mimeType: application/json
-      text: |-
-        {
-          "provider_selection": {},
-        	"redirect": {
-            "return_uri": "{{ _.RETURN_URI }}"
-          },
-        	"consent": {}
-        }
-    parameters: []
-    headers:
-      - id: pair_0b18789451764fa894e064ba24319128
-        name: Content-Type
-        value: application/json
-      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
-        name: Idempotency-Key
-        value: "{% uuid 'v4' %}"
-    authentication:
-      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
-        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
-      type: bearer
-    metaSortKey: -1647885074701.75
-    isPrivate: false
-    settingStoreCookies: true
-    settingSendCookies: true
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingFollowRedirects: global
-    _type: request
-  - _id: fld_a05d9a7136b14dde8da79b6907ea12d5
-    parentId: fld_06413a707d944cefbd84d226bbc6727a
-    modified: 1647885075887
-    created: 1647885075887
-    name: When the PSU uses a preselected provider
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1647885075887
-    _type: request_group
-  - _id: fld_06413a707d944cefbd84d226bbc6727a
-    parentId: fld_d1b870c03bdc4190a182ddfbe5c74799
-    modified: 1647885019961
-    created: 1647885019961
-    name: Using you own UI for provider selection
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1647885019961
-    _type: request_group
-  - _id: req_92b9d5eb325842a881fb2afba1580f33
-    parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1656629157479
-    created: 1656322628945
-    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
-      'req_32bb6380796a48c585096b7eb38b735c', 'b64::JC5pZA==::46b', 'never', 60
-      %}/authorization-flow/actions/consent"
-    name: Submit Consent
-    description: ""
-    method: POST
-    body:
-      mimeType: application/json
-      text: "{}"
-    parameters: []
-    headers:
-      - id: pair_0b18789451764fa894e064ba24319128
-        name: Content-Type
-        value: application/json
-      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
-        name: Idempotency-Key
-        value: "{% uuid 'v4' %}"
-    authentication:
-      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
-        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
-      type: bearer
-    metaSortKey: -1647885074651.75
-    isPrivate: false
-    settingStoreCookies: true
-    settingSendCookies: true
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingFollowRedirects: global
-    _type: request
   - _id: req_32bb6380796a48c585096b7eb38b735c
     parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1657812027397
+    modified: 1658940075198
     created: 1647879472551
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -382,7 +287,7 @@ resources:
       mimeType: application/json
       text: >-
         {
-        	"amount_in_minor": 1990,
+        	"amount_in_minor": 1,
         	"currency": "GBP",
         	"payment_method": {
         		"type": "bank_transfer",
@@ -424,7 +329,102 @@ resources:
       token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
         'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
       type: bearer
-    metaSortKey: -1635871886652.5
+    metaSortKey: -1647885074751.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_a05d9a7136b14dde8da79b6907ea12d5
+    parentId: fld_06413a707d944cefbd84d226bbc6727a
+    modified: 1647885075887
+    created: 1647885075887
+    name: When the PSU uses a preselected provider
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1647885075887
+    _type: request_group
+  - _id: fld_06413a707d944cefbd84d226bbc6727a
+    parentId: fld_d1b870c03bdc4190a182ddfbe5c74799
+    modified: 1647885019961
+    created: 1647885019961
+    name: Using you own UI for provider selection
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1647885019961
+    _type: request_group
+  - _id: req_968d84de2d464b25878ee2410f5d6d40
+    parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
+    modified: 1657811899899
+    created: 1647879472551
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_32bb6380796a48c585096b7eb38b735c', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow"
+    name: Start Authorization Flow
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "provider_selection": {},
+        	"redirect": {
+            "return_uri": "{{ _.RETURN_URI }}"
+          },
+        	"consent": {}
+        }
+    parameters: []
+    headers:
+      - id: pair_0b18789451764fa894e064ba24319128
+        name: Content-Type
+        value: application/json
+      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1647885074701.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_92b9d5eb325842a881fb2afba1580f33
+    parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
+    modified: 1656629157479
+    created: 1656322628945
+    url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
+      'req_32bb6380796a48c585096b7eb38b735c', 'b64::JC5pZA==::46b', 'never', 60
+      %}/authorization-flow/actions/consent"
+    name: Submit Consent
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: "{}"
+    parameters: []
+    headers:
+      - id: pair_0b18789451764fa894e064ba24319128
+        name: Content-Type
+        value: application/json
+      - id: pair_2ef7fbc8766b49368d506fca11ff31fd
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1647885074651.75
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
@@ -435,7 +435,7 @@ resources:
     _type: request
   - _id: req_dd5c3dcb7ec14dc48ac519de61888226
     parentId: fld_7af3fc5a5f3f4f7884316a19c0376eb0
-    modified: 1656628644928
+    modified: 1658940066380
     created: 1647879472553
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create the Payment
@@ -620,7 +620,7 @@ resources:
     _type: request
   - _id: req_59c7d91fabdc4c3ab625dff67114220d
     parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
-    modified: 1656628578521
+    modified: 1658940062797
     created: 1656323493633
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create the Payment
@@ -683,7 +683,7 @@ resources:
     _type: request_group
   - _id: req_f575088e4d0f4d558d1fcfb29f4fb527
     parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
-    modified: 1656628576099
+    modified: 1658940061216
     created: 1656323493631
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_59c7d91fabdc4c3ab625dff67114220d', 'b64::JC5pZA==::46b', 'never', 60
@@ -1405,7 +1405,7 @@ resources:
     _type: request
   - _id: req_4f37ee072395435fbdfac49a02be4c22
     parentId: fld_b7007702b22241f3bf8d543590a21d8a
-    modified: 1654071737626
+    modified: 1658940069050
     created: 1647879472540
     url: "{{ _.ENVIRONMENT_URI }}/merchant-accounts"
     name: List Merchant Accounts
@@ -1793,6 +1793,52 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
+  - _id: req_bdd611bf0fe54f17b4e06d341423a922
+    parentId: fld_009c109ece6f4dd49bd7653a3f38f679
+    modified: 1650628605180
+    created: 1650467119965
+    url: "{{ _.ENVIRONMENT_URI }}/mandates/{% response 'body',
+      'req_c8bdfe4156f94d16a0c7ae27e5fb1f69', 'b64::JC5pZA==::46b', 'never', 60
+      %}"
+    name: Get Mandate
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_6fc0e9ac772544ab942818fd81300b5e',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+    metaSortKey: -1643121939996
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_009c109ece6f4dd49bd7653a3f38f679
+    parentId: fld_a3e0114cdfcc49aba91673c775448d5e
+    modified: 1650464194760
+    created: 1650464194760
+    name: External Account
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1648817950340
+    _type: request_group
+  - _id: fld_a3e0114cdfcc49aba91673c775448d5e
+    parentId: wrk_fc294ae71e294c70bf66e45fab7ae6cd
+    modified: 1650464194757
+    created: 1650464194757
+    name: Mandates
+    description: ""
+    environment: {}
+    environmentPropertyOrder: {}
+    metaSortKey: -1000000000
+    _type: request_group
   - _id: req_c8bdfe4156f94d16a0c7ae27e5fb1f69
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
     modified: 1658418961956
@@ -1872,26 +1918,6 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_009c109ece6f4dd49bd7653a3f38f679
-    parentId: fld_a3e0114cdfcc49aba91673c775448d5e
-    modified: 1650464194760
-    created: 1650464194760
-    name: External Account
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1648817950340
-    _type: request_group
-  - _id: fld_a3e0114cdfcc49aba91673c775448d5e
-    parentId: wrk_fc294ae71e294c70bf66e45fab7ae6cd
-    modified: 1650464194757
-    created: 1650464194757
-    name: Mandates
-    description: ""
-    environment: {}
-    environmentPropertyOrder: {}
-    metaSortKey: -1000000000
-    _type: request_group
   - _id: req_2ffb2eca14074cedb0dd4a4336c791de
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
     modified: 1658418223905
