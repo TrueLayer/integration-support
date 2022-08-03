@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2022-07-27T16:41:51.356Z
+__export_date: 2022-08-03T14:58:11.779Z
 __export_source: insomnia.desktop.app:v2022.4.2
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
@@ -185,7 +185,7 @@ resources:
     _type: request
   - _id: req_048348aee09146739f5d32e51400e4aa
     parentId: fld_dadb7a5ed8f54883ad8c82214bf7d54f
-    modified: 1657812025821
+    modified: 1659538563895
     created: 1647879472556
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -275,7 +275,7 @@ resources:
     _type: request_group
   - _id: req_32bb6380796a48c585096b7eb38b735c
     parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1658940075198
+    modified: 1659538671194
     created: 1647879472551
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -306,7 +306,7 @@ resources:
         		},
         		"beneficiary": {
         			"type": "merchant_account",
-        			"name": "Merchant Account name",
+        			"account_holder_name": "Merchant Account name",
         			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
         		}
         	},
@@ -435,7 +435,7 @@ resources:
     _type: request
   - _id: req_dd5c3dcb7ec14dc48ac519de61888226
     parentId: fld_7af3fc5a5f3f4f7884316a19c0376eb0
-    modified: 1658940066380
+    modified: 1659538662616
     created: 1647879472553
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create the Payment
@@ -454,7 +454,7 @@ resources:
         		},
         		"beneficiary": {
         			"type": "merchant_account",
-        			"name": "Merchant Account name",
+        			"account_holder_name": "Merchant Account name",
         			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
         		}
         	},
@@ -620,7 +620,7 @@ resources:
     _type: request
   - _id: req_59c7d91fabdc4c3ab625dff67114220d
     parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
-    modified: 1658940062797
+    modified: 1659538668622
     created: 1656323493633
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create the Payment
@@ -639,7 +639,7 @@ resources:
         		},
         		"beneficiary": {
         			"type": "merchant_account",
-        			"name": "Merchant Account name",
+        			"account_holder_name": "Merchant Account name",
         			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your EUR merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
         		}
         	},
@@ -922,7 +922,7 @@ resources:
     _type: request
   - _id: req_092648dd85784ebca98c9cadf7382d5c
     parentId: fld_928a5e99adc54d1fb159f578cb058cf6
-    modified: 1657895172462
+    modified: 1659538557880
     created: 1647881398287
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -1017,7 +1017,7 @@ resources:
     _type: request_group
   - _id: req_dabce4e38a0e4a889aa07a1c29f38702
     parentId: fld_cb0673615fcb494ebea955af72dd51f5
-    modified: 1657895168174
+    modified: 1659538543623
     created: 1647879472560
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -1183,7 +1183,7 @@ resources:
     _type: request
   - _id: req_29f3b81c7b53432bb8abdd4abca785e2
     parentId: fld_3491aae2efcc469785c45e3ad9b11a80
-    modified: 1657895173399
+    modified: 1659538549665
     created: 1647879472564
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
