@@ -1,11 +1,11 @@
 _type: export
 __export_format: 4
-__export_date: 2022-08-31T08:29:38.521Z
+__export_date: 2022-09-06T13:37:01.021Z
 __export_source: insomnia.desktop.app:v2022.5.1
 resources:
   - _id: req_42dac02e96cd4c4180227e29310e56a3
     parentId: fld_7e168157562c428cbbee8fb513a2142d
-    modified: 1661934450388
+    modified: 1662471140524
     created: 1647879472539
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: Generate Access Token
@@ -65,7 +65,7 @@ resources:
     _type: workspace
   - _id: req_6fc0e9ac772544ab942818fd81300b5e
     parentId: fld_7e168157562c428cbbee8fb513a2142d
-    modified: 1658417479456
+    modified: 1662470756557
     created: 1650464223252
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: Generate Access Token - Mandate
@@ -117,7 +117,7 @@ resources:
     _type: request
   - _id: req_17e8ec73a25548ad8657547a526d9cc8
     parentId: fld_685a90a90c564e41bef77672333cd817
-    modified: 1661934554369
+    modified: 1662470652352
     created: 1647879472555
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}"
@@ -152,7 +152,7 @@ resources:
     _type: request_group
   - _id: req_9ca271a494db4427a451601202bbef97
     parentId: fld_685a90a90c564e41bef77672333cd817
-    modified: 1661934476922
+    modified: 1658940074093
     created: 1657884889075
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}/actions/cancel"
@@ -185,7 +185,7 @@ resources:
     _type: request
   - _id: req_048348aee09146739f5d32e51400e4aa
     parentId: fld_dadb7a5ed8f54883ad8c82214bf7d54f
-    modified: 1661934493108
+    modified: 1662471302646
     created: 1647879472556
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -199,31 +199,13 @@ resources:
         	"currency": "GBP",
         	"payment_method": {
         		"provider_selection": {
-        			"filter": {
-        				"countries": [
-        					"GB"
-        				],
-        				"release_channel": "private_beta",
-        				"customer_segments": [
-        					"retail"
-        				],
-        				"provider_ids": [
-        					"mock-payments-gb-redirect"
-        				],
-        				"excludes": {
-        					"provider_ids": [
-        						"ob-exclude-this-bank"
-        					]
-        				}
-        			},
         			"type": "user_selected"
         		},
         		"type": "bank_transfer",
         		"beneficiary": {
         			"type": "merchant_account",
         			"account_holder_name": "Beneficiary Name",
-        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}",
-        			"reference": "BenRefTest"
+        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
         		}
         	},
         	"user": {
@@ -274,9 +256,67 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1647883794652
     _type: request_group
+  - _id: req_0504be5b0cfe42d08050b7a25f895cda
+    parentId: fld_dadb7a5ed8f54883ad8c82214bf7d54f
+    modified: 1662471255169
+    created: 1662471155180
+    url: https://payment.truelayer-sandbox.com/payments#payment_id={% response
+      'body', 'req_048348aee09146739f5d32e51400e4aa', 'b64::JC5pZA==::46b',
+      'never', 60 %}&resource_token={% response 'body',
+      'req_048348aee09146739f5d32e51400e4aa',
+      'b64::JC5yZXNvdXJjZV90b2tlbg==::46b', 'never', 60 %}&return_uri={{
+      _.RETURN_URI }}
+    name: Create HPP
+    description: ""
+    method: NA
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"amount_in_minor": 1,
+        	"currency": "GBP",
+        	"payment_method": {
+        		"provider_selection": {
+        			"type": "user_selected"
+        		},
+        		"type": "bank_transfer",
+        		"beneficiary": {
+        			"type": "merchant_account",
+        			"account_holder_name": "Beneficiary Name",
+        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
+        		}
+        	},
+        	"user": {
+        		"id": "{% uuid 'v4' %}",
+        		"name": "{% prompt 'Name', '', '', '', false, true %}",
+        		"email": "{% prompt 'User Email', '', '', '', false, true %}",
+        		"phone": "{% prompt 'Phone', 'Please prefix with + and country code', '', '', false, true %}"
+        	}
+        }
+    parameters: []
+    headers:
+      - id: pair_4901eb02eb9f41dfbff0b110f9bdd25d
+        name: Content-Type
+        value: application/json
+      - id: pair_98be0a07c8ec4390bcaa878fd1d1a7c7
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+    authentication:
+      token: "{% response 'body', 'req_42dac02e96cd4c4180227e29310e56a3',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1647883820553.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_32bb6380796a48c585096b7eb38b735c
     parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1661934433612
+    modified: 1662110767499
     created: 1647879472551
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -295,25 +335,16 @@ resources:
         		"provider_selection": {
         			"type": "preselected",
         			"provider_id": "mock-payments-gb-redirect",
-        			"scheme_id": "faster_payments_service",
-        			"remitter": {
-        				"account_holder_name": "Remit name",
-        				"account_identifier": {
-        					"type": "sort_code_account_number",
-        					"sort_code": "123456",
-        					"account_number": "12345678"
-        				}
-        			}
+        			"scheme_id": "faster_payments_service"
         		},
         		"beneficiary": {
         			"type": "merchant_account",
         			"account_holder_name": "Merchant Account name",
-        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}",
-        			"reference": "BenRefTest"
+        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
         		}
         	},
         	"user": {
-        		"id": "{% uuid 'v4' %}",
+        		"id": "57e9ae89-01fd-4779-8775-5b7de9a85a64",
         		"name": "{% prompt 'Name', '', '', '', false, true %}",
         		"email": "{% prompt 'User Email', '', '', '', false, true %}",
         		"phone": "{% prompt 'Phone', 'Please prefix with + and country code', '', '', false, true %}"
@@ -362,7 +393,7 @@ resources:
     _type: request_group
   - _id: req_968d84de2d464b25878ee2410f5d6d40
     parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1657811899899
+    modified: 1662110769461
     created: 1647879472551
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_32bb6380796a48c585096b7eb38b735c', 'b64::JC5pZA==::46b', 'never', 60
@@ -377,8 +408,7 @@ resources:
           "provider_selection": {},
         	"redirect": {
             "return_uri": "{{ _.RETURN_URI }}"
-          },
-        	"consent": {}
+          }
         }
     parameters: []
     headers:
@@ -403,7 +433,7 @@ resources:
     _type: request
   - _id: req_92b9d5eb325842a881fb2afba1580f33
     parentId: fld_a05d9a7136b14dde8da79b6907ea12d5
-    modified: 1656629157479
+    modified: 1662110771490
     created: 1656322628945
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_32bb6380796a48c585096b7eb38b735c', 'b64::JC5pZA==::46b', 'never', 60
@@ -437,7 +467,7 @@ resources:
     _type: request
   - _id: req_dd5c3dcb7ec14dc48ac519de61888226
     parentId: fld_7af3fc5a5f3f4f7884316a19c0376eb0
-    modified: 1661934429124
+    modified: 1662110813371
     created: 1647879472553
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create the Payment
@@ -457,8 +487,7 @@ resources:
         		"beneficiary": {
         			"type": "merchant_account",
         			"account_holder_name": "Merchant Account name",
-        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}",
-        			"reference": "BenRefTest"
+        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
         		}
         	},
         	"user": {
@@ -511,7 +540,7 @@ resources:
     _type: request_group
   - _id: req_925f0bb447d64c95a282fdcb6fe97096
     parentId: fld_7af3fc5a5f3f4f7884316a19c0376eb0
-    modified: 1656628639556
+    modified: 1662110816973
     created: 1647879472553
     url: "{{ _.ENVIRONMENT_URI }}/payments/{% response 'body',
       'req_dd5c3dcb7ec14dc48ac519de61888226', 'b64::JC5pZA==::46b', 'never', 60
@@ -623,7 +652,7 @@ resources:
     _type: request
   - _id: req_59c7d91fabdc4c3ab625dff67114220d
     parentId: fld_9ee0cea4bfa0460c84410d4442ecf244
-    modified: 1661934423821
+    modified: 1659538668622
     created: 1656323493633
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create the Payment
@@ -643,8 +672,7 @@ resources:
         		"beneficiary": {
         			"type": "merchant_account",
         			"account_holder_name": "Merchant Account name",
-        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your EUR merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}",
-        			"reference": "BenRefTest"
+        			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your EUR merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}"
         		}
         	},
         	"user": {
@@ -926,7 +954,7 @@ resources:
     _type: request
   - _id: req_092648dd85784ebca98c9cadf7382d5c
     parentId: fld_928a5e99adc54d1fb159f578cb058cf6
-    modified: 1661934405792
+    modified: 1659538557880
     created: 1647881398287
     url: "{{ _.ENVIRONMENT_URI }}/payments"
     name: Create Payment
@@ -1409,7 +1437,7 @@ resources:
     _type: request
   - _id: req_4f37ee072395435fbdfac49a02be4c22
     parentId: fld_b7007702b22241f3bf8d543590a21d8a
-    modified: 1661934468419
+    modified: 1662470777620
     created: 1647879472540
     url: "{{ _.ENVIRONMENT_URI }}/merchant-accounts"
     name: List Merchant Accounts
@@ -1646,7 +1674,7 @@ resources:
     _type: request
   - _id: req_6bf4d3f784c54409a5e0407f0a2034ca
     parentId: fld_cce93eee73534e38aa36f02f463ccd62
-    modified: 1661934228071
+    modified: 1661960780660
     created: 1647879472546
     url: "{{ _.ENVIRONMENT_URI }}/payouts"
     name: Create Payout to Payment Source
@@ -1706,7 +1734,7 @@ resources:
     _type: request_group
   - _id: req_50f8a680231b407fb789909c189ea125
     parentId: fld_cce93eee73534e38aa36f02f463ccd62
-    modified: 1654071833283
+    modified: 1662055106741
     created: 1647879472548
     url: "{{ _.ENVIRONMENT_URI }}/payouts"
     name: Create Payout to External Account
@@ -1726,7 +1754,7 @@ resources:
         			"type": "iban",
         			"iban": "{% prompt 'External Beneficiary IBAN', '', '', '', false, true %}"
         		},
-            "reference": "PayOutExtRef"
+            "reference": "Reference Exmample"
           }
         }
     parameters: []
@@ -1759,7 +1787,7 @@ resources:
     _type: request
   - _id: req_d357b57e488041bfb1c79c3dbcf9a01c
     parentId: fld_cce93eee73534e38aa36f02f463ccd62
-    modified: 1654071831268
+    modified: 1660918778607
     created: 1647879472547
     url: "{{ _.ENVIRONMENT_URI }}/payouts/{% prompt 'PayOut ID', '', '', '', false,
       true %}"
@@ -1797,55 +1825,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_bdd611bf0fe54f17b4e06d341423a922
-    parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1650628605180
-    created: 1650467119965
-    url: "{{ _.ENVIRONMENT_URI }}/mandates/{% response 'body',
-      'req_c8bdfe4156f94d16a0c7ae27e5fb1f69', 'b64::JC5pZA==::46b', 'never', 60
-      %}"
-    name: Get Mandate
-    description: ""
-    method: GET
-    body: {}
-    parameters: []
-    headers: []
-    authentication:
-      type: bearer
-      token: "{% response 'body', 'req_6fc0e9ac772544ab942818fd81300b5e',
-        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
-    metaSortKey: -1643121939996
-    isPrivate: false
-    settingStoreCookies: true
-    settingSendCookies: true
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingFollowRedirects: global
-    _type: request
-  - _id: fld_009c109ece6f4dd49bd7653a3f38f679
-    parentId: fld_a3e0114cdfcc49aba91673c775448d5e
-    modified: 1650464194760
-    created: 1650464194760
-    name: External Account
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1648817950340
-    _type: request_group
-  - _id: fld_a3e0114cdfcc49aba91673c775448d5e
-    parentId: wrk_fc294ae71e294c70bf66e45fab7ae6cd
-    modified: 1650464194757
-    created: 1650464194757
-    name: Mandates
-    description: ""
-    environment: {}
-    environmentPropertyOrder: {}
-    metaSortKey: -1000000000
-    _type: request_group
   - _id: req_c8bdfe4156f94d16a0c7ae27e5fb1f69
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1658418961956
+    modified: 1662471118439
     created: 1650464194773
     url: "{{ _.ENVIRONMENT_URI }}/mandates"
     name: Create Mandate (external account)
@@ -1922,6 +1904,26 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
+  - _id: fld_009c109ece6f4dd49bd7653a3f38f679
+    parentId: fld_a3e0114cdfcc49aba91673c775448d5e
+    modified: 1650464194760
+    created: 1650464194760
+    name: External Account
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1648817950340
+    _type: request_group
+  - _id: fld_a3e0114cdfcc49aba91673c775448d5e
+    parentId: wrk_fc294ae71e294c70bf66e45fab7ae6cd
+    modified: 1650464194757
+    created: 1650464194757
+    name: Mandates
+    description: ""
+    environment: {}
+    environmentPropertyOrder: {}
+    metaSortKey: -1000000000
+    _type: request_group
   - _id: req_2ffb2eca14074cedb0dd4a4336c791de
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
     modified: 1658418223905
@@ -2004,7 +2006,7 @@ resources:
     _type: request
   - _id: req_e96ba82c3c4e41b687795f2ca52b68fd
     parentId: fld_009c109ece6f4dd49bd7653a3f38f679
-    modified: 1658418255345
+    modified: 1662471124459
     created: 1650464194784
     url: "{{ _.ENVIRONMENT_URI }}/mandates/{% response 'body',
       'req_c8bdfe4156f94d16a0c7ae27e5fb1f69', 'b64::JC5pZA==::46b', 'never', 60
@@ -2235,7 +2237,7 @@ resources:
     _type: request
   - _id: req_9f4b0ff4d37943008187c75ba2ddf44f
     parentId: fld_2f845599836240ddb7a1e80ee5e2a6af
-    modified: 1658418968059
+    modified: 1662471104720
     created: 1658417509484
     url: "{{ _.ENVIRONMENT_URI }}/mandates"
     name: Create Mandate (merchant account)
@@ -2320,7 +2322,7 @@ resources:
     _type: request_group
   - _id: req_5279f25e5e844446b48677d953f10480
     parentId: fld_2f845599836240ddb7a1e80ee5e2a6af
-    modified: 1658418305344
+    modified: 1662470891588
     created: 1658417509479
     url: "{{ _.ENVIRONMENT_URI }}/mandates/{% response 'body',
       'req_9f4b0ff4d37943008187c75ba2ddf44f', 'b64::JC5pZA==::46b', 'never', 60
@@ -2362,7 +2364,7 @@ resources:
     _type: request
   - _id: req_a18c4c8ed14944029585266b58464fcd
     parentId: fld_2f845599836240ddb7a1e80ee5e2a6af
-    modified: 1658418309455
+    modified: 1662470904338
     created: 1658417509477
     url: "{{ _.ENVIRONMENT_URI }}/mandates/{% response 'body',
       'req_9f4b0ff4d37943008187c75ba2ddf44f', 'b64::JC5pZA==::46b', 'never', 60
@@ -2400,7 +2402,7 @@ resources:
     _type: request
   - _id: req_099b76f6e68c4b5a86cf40c796ff5f3f
     parentId: fld_2f845599836240ddb7a1e80ee5e2a6af
-    modified: 1658418333322
+    modified: 1662471106543
     created: 1658417509480
     url: "{{ _.ENVIRONMENT_URI }}/mandates/{% response 'body',
       'req_9f4b0ff4d37943008187c75ba2ddf44f', 'b64::JC5pZA==::46b', 'never', 60
@@ -2426,7 +2428,7 @@ resources:
     _type: request
   - _id: req_896f1d211c2e4c4e8afd7c61aede1301
     parentId: fld_2f845599836240ddb7a1e80ee5e2a6af
-    modified: 1658418862124
+    modified: 1662470828777
     created: 1658417509483
     url: "{{ _.ENVIRONMENT_URI }}/mandates?user_id={% response 'body',
       'req_9f4b0ff4d37943008187c75ba2ddf44f', 'b64::JC51c2VyLmlk::46b', 'never',
@@ -2688,7 +2690,7 @@ resources:
     _type: api_spec
   - _id: env_32f82cb3e3c641ba86a5c8c730ccdaa7
     parentId: env_8c79365dec4643bbb4c64566d83f8780
-    modified: 1658406895867
+    modified: 1660319049951
     created: 1647879472533
     name: TrueLayer <Sandbox>
     data:
@@ -2716,7 +2718,7 @@ resources:
     _type: environment
   - _id: env_2dcd76732d304b21a925a108618bf92d
     parentId: env_8c79365dec4643bbb4c64566d83f8780
-    modified: 1658406895150
+    modified: 1660319072409
     created: 1647974620406
     name: TrueLayer <Production>
     data:
