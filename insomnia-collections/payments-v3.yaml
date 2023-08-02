@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2023-07-26T15:53:40.973Z
+__export_date: 2023-08-02T15:16:04.301Z
 __export_source: insomnia.desktop.app:v2023.4.0
 resources:
   - _id: req_54bc6fa44a0f456ea8c7cefd8c8d285d
@@ -699,7 +699,7 @@ resources:
     _type: request
   - _id: req_53c2f723e0c741d68405a851e25f29fa
     parentId: fld_016a47880e934fafb96e4b06304781a6
-    modified: 1690384725891
+    modified: 1690983514761
     created: 1647879472553
     url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
     name: Create the Payment
@@ -812,7 +812,7 @@ resources:
     _type: request
   - _id: req_d04fedffe18940fe85e4b2fda8798701
     parentId: fld_016a47880e934fafb96e4b06304781a6
-    modified: 1690384760750
+    modified: 1690982717510
     created: 1647879472554
     url: "{{ _.ENVIRONMENT_URI }}/v3/payments/{% response 'body',
       'req_53c2f723e0c741d68405a851e25f29fa', 'b64::JC5pZA==::46b', 'never', 60
@@ -1612,7 +1612,7 @@ resources:
     _type: request
   - _id: req_3c77e785c1894235b6fd0b07e4f98c45
     parentId: fld_ca9a112257b64562999947bf2009deb0
-    modified: 1690386761542
+    modified: 1690989202829
     created: 1690386212214
     url: "{{ _.ENVIRONMENT_URI }}/v3/payment-links"
     name: Create a Payment Link
@@ -1622,79 +1622,76 @@ resources:
       mimeType: application/json
       text: >-
         {
-        	"expires_at":"2024-07-22T07:30:53.527Z",
-        	"reference":"#TT8776618",
-        	"return_uri":"https://console.truelayer.com/redirect-page",
-        	"payment_configuration":{
-        			"amount_in_minor":100,
-        			"currency":"GBP",
-        			"payment_method":{
-        				 "type":"bank_transfer",
-        				 "provider_selection":{
-        						"type":"user_selected"
-        				 },
-        				 "beneficiary":{
-        						"type":"merchant_account",
-        						"merchant_account_id":"{% prompt 'Merchant Account ID', 'Enter your Merchant Account ID', '', '', false, true %}",
-        						"reference":"TT8776618"
-        				 }
+        	"expires_at": "2024-07-22T07:30:53.527Z",
+        	"reference": "#TT8776618",
+        	"return_uri": "https://console.truelayer.com/redirect-page",
+        	"payment_configuration": {
+        		"amount_in_minor": 110,
+        		"currency": "GBP",
+        		"payment_method": {
+        			"type": "bank_transfer",
+        			"provider_selection": {
+        				"type": "user_selected"
         			},
-        			"user":
-            {
-                "id": "f61c0ec7-0f83-414e-8e5f-aace86e0ed35",
-                "name": "Jonathan Sandbridge",
-                "email": "john@sandbridge.com",
-                "phone": "+44123456789",
-                "date_of_birth": "1992-11-28",
-                "address":
-                {
-                    "address_line1": "1, Hardwick Street",
-                    "city": "London",
-                    "state": "London",
-                    "zip": "EC1R 4RB",
-                    "country_code": "GB"
-                }
-            }
-        	 },
-        	"product_items":[
+        			"beneficiary": {
+        				"type": "merchant_account",
+        				"merchant_account_id": "{% prompt 'Your Merchant Account ID', 'Insert your Merchant Account ID', '', '', false, true %}"
+        			}
+        		},
+        		"user": {
+        			"id": "f61c0ec7-0f83-414e-8e5f-aace86e0ed35",
+        			"name": "Jonathan Sandbridge",
+        			"email": "john@sandbridge.com",
+        			"phone": "+44123456789",
+        			"date_of_birth": "1992-11-28",
+        			"address": {
+        				"address_line1": "1, Hardwick Street",
+        				"city": "London",
+        				"state": "London",
+        				"zip": "EC1R 4RB",
+        				"country_code": "GB"
+        			}
+        		}
+        	},
+        	"product_items": [
         		{
-        			 "name":"Table",
-        			 "price_in_minor":2700,
-        			 "quantity":1,
-        			 "url":"https://www.toppstiles.co.uk\/bathroom-tiles\/regal#selection.product_colour=Etched%20Smoke&selection.size=60cm%20x%2029.7cm%20Rectangular&selection.primary_tile_finish=Gloss"
+        			"name": "Table",
+        			"price_in_minor": 10,
+        			"quantity": 1,
+        			"url": "https://www.example.com/table"
         		},
         		{
-        			 "name":"Sofa",
-        			 "price_in_minor":1500,
-        			 "quantity":1,
-        			 "url":"https:\/\/www.toppstiles.co.uk\/bathroom-tiles\/mora#selection.product_colour=Oak&selection.size=90cm%20x%2015cm%20Plank&selection.primary_tile_finish=Matt"
+        			"name": "Sofa",
+        			"price_in_minor": 20,
+        			"quantity": 1,
+        			"url": "https://www.example.com/sofa"
         		},
         		{
-        			 "name":"Chair",
-        			 "price_in_minor":350,
-        			 "quantity":4,
-        			 "url":"https:\/\/www.toppstiles.co.uk\/bathroom-tiles\/victorian-flooring#selection.product_colour=Beckford&selection.size=38cm%20x%2038cm%20Mosaic&selection.primary_tile_finish=Matt"
+        			"name": "Chair",
+        			"price_in_minor": 20,
+        			"quantity": 4,
+        			"url": "https://www.example.com/chair"
         		},
         		{
-        			 "name":"Shelf",
-        			 "price_in_minor":750,
-        			 "quantity":2,
-        			 "url":"https:\/\/www.toppstiles.co.uk\/bathroom-tiles\/matrix#selection.product_colour=Red&selection.primary_tile_finish=Gloss&selection.size=14.8cm%20x%2014.8cm%20Square"
+        			"name": "Shelf",
+        			"price_in_minor": 30,
+        			"quantity": 2,
+        			"url": "https://www.example.com/table/shelf"
         		},
         		{
-        			 "name":"Bracket",
-        			 "price_in_minor":3500,
-        			 "quantity":4,
-        			 "url":"https:\/\/www.toppstiles.co.uk\/antalya-crema\/antalya-crema-irregular-linear-mosaic-tile#selection.product_colour=Cream&selection.size=61cm%20x%2061cm%20Square&selection.primary_tile_finish=Gloss"
+        			"name": "Bracket",
+        			"price_in_minor": 20,
+        			"quantity": 4,
+        			"url": "https://www.example.com/bracket"
         		},
         		{
-        			 "name":"Rug",
-        			 "price_in_minor":2000,
-        			 "quantity":1,
-        			 "url":"https:\/\/www.toppstiles.co.uk\/antalya-crema\/antalya-crema-irregular-linear-mosaic-tile#selection.product_colour=Beige&selection.size=30.6cm%20x%2030.6cm%20Square&selection.primary_tile_finish=Gloss"
+        			"name": "Rug",
+        			"price_in_minor": 10,
+        			"quantity": 1,
+        			"url": "https://www.example.com/rug"
         		}
         	],
-        	"type":"single_payment"
+        	"type": "single_payment"
         }
     parameters: []
     headers:
