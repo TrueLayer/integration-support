@@ -1,0 +1,1163 @@
+_type: export
+__export_format: 4
+__export_date: 2022-07-07T17:01:05.846Z
+__export_source: insomnia.desktop.app:v2022.4.2
+resources:
+  - _id: req_1eff460d2fea408590e380786744da6a
+    parentId: wrk_0123517a72cb4ea59eee0e9491b82d21
+    modified: 1657210840943
+    created: 1657210438496
+    url: https://{{ _.status_api }}/api/v1/data/status
+    name: API status
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_0717086de1d140bb8347ad46a4b7c4c1
+        name: from
+        value: ""
+        description: ""
+        disabled: true
+      - id: pair_5e20b8afa57b4940ac355aeffe28e95f
+        name: to
+        value: ""
+        description: ""
+        disabled: true
+      - id: pair_3b789b6364cf4252b26b1a7aeb196938
+        name: providers
+        value: ""
+        description: ""
+        disabled: true
+      - id: pair_94ccf3a9ca404d608b3239eb38c99108
+        name: endpoints
+        value: ""
+        description: ""
+        disabled: true
+      - id: pair_d0ef482e29fa4e318859459e1c42fdf3
+        name: environment
+        value: ""
+        description: ""
+        disabled: true
+    headers: []
+    authentication: {}
+    metaSortKey: -1657210438496
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_0123517a72cb4ea59eee0e9491b82d21
+    parentId: null
+    modified: 1656944329482
+    created: 1650464874064
+    name: TrueLayer Data Products
+    description: |-
+      A collection of APIs covering:
+
+      * Connections API
+      * Data API
+      * Verification API
+    scope: collection
+    _type: workspace
+  - _id: req_f2aa942176b34ae3aebb475481a5106e
+    parentId: fld_dbef7fffdfc04a0299a61b54e0f43292
+    modified: 1657017935492
+    created: 1656944350200
+    url: https://{{auth_api}}/connect/token
+    name: Exchange code for access token
+    description: ""
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - id: pair_23067ed6ebfa476fb8daea681f7efacb
+          name: grant_type
+          value: authorization_code
+          description: ""
+        - id: pair_b12b47fb8a72492795383e8ec306ee3d
+          name: client_id
+          value: "{{ _.client_id }}"
+          description: ""
+          disabled: false
+        - id: pair_f1049a6e147c4d7f806bddc0cf71abc7
+          name: client_secret
+          value: "{{ _.client_secret }}"
+          description: ""
+        - id: pair_de0a155f1cf34008abec9676852c2f78
+          name: redirect_uri
+          value: "{{ _.redirect_uri }}"
+          description: ""
+        - id: pair_2970ec9e7f9440218a9b3cebfb9758ff
+          name: code
+          value: 8BBD2E331B815D317EF98B317CE885437C6ABD267138C5EEF76422DD9ED09F01
+          description: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+        id: pair_d8d92762d0f9462babeaa9ce1fae3dd1
+    authentication: {}
+    metaSortKey: -1650464868767
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_dbef7fffdfc04a0299a61b54e0f43292
+    parentId: fld_25c26ca48f0d4c83968b8d1b9d979a9e
+    modified: 1656957136174
+    created: 1656944350190
+    name: Access tokens
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1650464868826
+    _type: request_group
+  - _id: fld_25c26ca48f0d4c83968b8d1b9d979a9e
+    parentId: wrk_0123517a72cb4ea59eee0e9491b82d21
+    modified: 1656949830749
+    created: 1656944350167
+    name: Connections
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1650464868919.5
+    _type: request_group
+  - _id: req_d2a50599f3b541a29c0d6e54426be993
+    parentId: fld_dbef7fffdfc04a0299a61b54e0f43292
+    modified: 1657209283541
+    created: 1656944350195
+    url: https://{{auth_api}}/connect/token
+    name: Renew access token
+    description: ""
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - value: refresh_token
+          name: grant_type
+          disabled: false
+          id: pair_b80cb3f1d2554c6c896f028e4d8e9372
+        - value: "{{ _.client_id }}"
+          name: client_id
+          disabled: false
+          id: pair_e4fd2960c3bc436e9436e6171a4053a4
+        - value: "{{ _.client_secret }}"
+          name: client_secret
+          disabled: false
+          id: pair_f708b009219944e4a7961ba3aadef189
+        - value: "{% response 'body', 'req_f2aa942176b34ae3aebb475481a5106e',
+            'b64::JC5yZWZyZXNoX3Rva2Vu::46b', 'never', 60 %}"
+          name: refresh_token
+          disabled: false
+          id: pair_69cc32eaae7a4b4e96d3ff47da53b43f
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/x-www-form-urlencoded
+        id: pair_264e5dcff2b44351af52c939229a3bb8
+    authentication: {}
+    metaSortKey: -1650464868765
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_409b0a8e5b0a4d498cde3ad4cb226114
+    parentId: fld_dbef7fffdfc04a0299a61b54e0f43292
+    modified: 1656957439794
+    created: 1650464868720
+    url: https://{{data_api}}/data/v1/me
+    name: Retrieve access token metadata
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868764
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8b402dfe296742ed8323b6c3cce7f17b
+    parentId: fld_dbef7fffdfc04a0299a61b54e0f43292
+    modified: 1656948655457
+    created: 1656944350192
+    url: https://{{auth_api}}/api/delete
+    name: Delete a connection
+    description: ""
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: >-
+        {
+            "access_token": "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993', 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_5cd36def1ef740dfb236136a2f6364ed
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868763
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d011aff8d8314a6ba97fdb0ac7969f5b
+    parentId: fld_94f65dea9c724938b6ebcb4e35316841
+    modified: 1656951427632
+    created: 1650464868710
+    url: https://{{auth_api}}/api/providers
+    name: Retrieve list of providers
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_2606b080f2bf4268b69a59fc4b1c12bb
+        name: client_id
+        value: "{{ _.client_id }}"
+        description: ""
+    headers: []
+    authentication: {}
+    metaSortKey: -1650464868825
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_94f65dea9c724938b6ebcb4e35316841
+    parentId: fld_25c26ca48f0d4c83968b8d1b9d979a9e
+    modified: 1656951309353
+    created: 1656944350204
+    name: Create a connection
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1650464868776
+    _type: request_group
+  - _id: req_e981031efc8f4436a418a7bbfa95f4f6
+    parentId: fld_94f65dea9c724938b6ebcb4e35316841
+    modified: 1657211055144
+    created: 1656944350214
+    url: https://{{auth_api}}
+    name: Auth dialog link
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_ad8fdfb5fa97470ab41cc6a371f88189
+        name: response_type
+        value: code
+        description: ""
+      - id: pair_3a29c592af8d4289b9f5f971c723f401
+        name: client_id
+        value: "{{ _.client_id }}"
+        description: ""
+      - id: pair_f3909b9d0199478a97b58c8952700527
+        name: redirect_uri
+        value: "{{ _.redirect_uri }}"
+        description: ""
+      - id: pair_eaa1ebd0ea904555a204be76458440d2
+        name: scope
+        value: infor accounts balance cards transactions direct_debits standing_orders
+          offline_access
+        description: ""
+      - id: pair_80114c9e2cac4ca3b3c41d0cc982b54e
+        name: state
+        value: my-state-123abc
+        description: ""
+      - id: pair_64e2c4ef9d99489eb1790d4c363718b4
+        name: tracking_id
+        value: "{% uuid 'v4' %}"
+        description: ""
+    headers: []
+    authentication: {}
+    metaSortKey: -1650464868775
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_07c7b0955c0b41b0b62bdad924b66bc8
+    parentId: fld_94f65dea9c724938b6ebcb4e35316841
+    modified: 1657210315700
+    created: 1656944350211
+    url: https://{{auth_api}}/v1/authuri
+    name: Direct bank auth link
+    description: ""
+    method: POST
+    body:
+      mimeType: ""
+      text: >-
+        {
+        	"response_type":"code",
+        	"client_id": "{{ _.client_id }}",
+        	"redirect_uri": "{{ _.redirect_uri }}",
+        	"scope": "cards",
+        	"provider_id": "{% prompt 'Provider ID', '', 'ob-monzo', '', false, true %}",
+        	"consent_id": "123",
+        	"tracking_id": "{{tracking_id}}"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_fc1cf5377ea545ee94e0e8facd3f20fa
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      prefix: ""
+    metaSortKey: -1650464868774
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fc90c6a202ad41bd8aa29d88fd30e33e
+    parentId: fld_d7b01fafea5640169372d932d66cb33a
+    modified: 1657209302149
+    created: 1656951393736
+    url: https://{{ _.data_api }}/connections/extend
+    name: Extend a connection
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"user_has_reconfirmed_consent": {% prompt 'User has reconfirmed consent', 'User has reconfirmed consent', 'false', '', false, true %},
+        	"user": {
+        		"id": "",
+        		"name": "Alan Turing",
+        		"email": "alan.turing@bletchleypark.org",
+        		"phone": "+447777123123"
+        	},
+        	"client_id": "{{ _.client_id }}",
+        	"client_secret": "{{ _.client_secret }}",
+        	"refresh_token": "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993', 'b64::JC5yZWZyZXNoX3Rva2Vu::46b', 'always', 60 %}",
+        	"redirect_uri": "{{ _.redirect_uri }}"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_f42cf0d79e8943e99eb496557ba2c0d1
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+    metaSortKey: -1650464868822
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_d7b01fafea5640169372d932d66cb33a
+    parentId: fld_25c26ca48f0d4c83968b8d1b9d979a9e
+    modified: 1656951327226
+    created: 1656951320813
+    name: Extend a connection
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1650464868772
+    _type: request_group
+  - _id: req_e5a2462aeee54daf971787071a9bac0d
+    parentId: fld_d7b01fafea5640169372d932d66cb33a
+    modified: 1656957474200
+    created: 1656944350208
+    url: https://{{auth_api}}/v1/reauthuri
+    name: (deprecated) Re-authentication
+    description: "> ⚠️ This endoint has been superseded by `POST connections/extend`"
+    method: POST
+    body:
+      mimeType: ""
+      text: >-
+        {
+            "response_type":"code",
+            "client_id": "{{ _.client_id }}",
+        	  "refresh_token": "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993', 'b64::JC5yZWZyZXNoX3Rva2Vu::46b', 'always', 3600 %}",
+            "redirect_uri": "{{ _.redirect_uri }}",
+            "consent_id": "{% uuid 'v4' %}",
+            "tracking_id": "{% uuid 'v4' %}"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_98387dbeba164b8caff7f24231fb2b43
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1650464868772
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d0034d8b39894876a0838912e7b2647f
+    parentId: fld_3d6a491a79b14746bb1e6c67771d14a6
+    modified: 1657211115391
+    created: 1656944350185
+    url: https://{{auth_api}}/api/debug
+    name: Generate debug ID
+    description: ""
+    method: POST
+    body:
+      mimeType: ""
+      text: >-
+        {
+            "access_token": "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993', 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_9e45e448cc084fdb9b97397804d657f8
+    authentication: {}
+    metaSortKey: -1650464868760
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_3d6a491a79b14746bb1e6c67771d14a6
+    parentId: fld_25c26ca48f0d4c83968b8d1b9d979a9e
+    modified: 1656944350172
+    created: 1656944350172
+    name: Debug IDs
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1650464868762
+    _type: request_group
+  - _id: req_a28642ed2f9244d0900450af85813409
+    parentId: fld_3d6a491a79b14746bb1e6c67771d14a6
+    modified: 1657213180604
+    created: 1656944350177
+    url: https://{{auth_api}}/api/debug
+    name: Delete debug ID
+    description: ""
+    method: DELETE
+    body:
+      mimeType: ""
+      text: >-
+        {
+            "access_token": "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993', 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_92a18a36a76a49cb8dc5e8588496abb2
+    authentication: {}
+    metaSortKey: -1650464868759
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b9ec424821824668b1e3cebd1155d5b0
+    parentId: fld_5fba152279354ec98861fccc944693c7
+    modified: 1656949838943
+    created: 1650464868717
+    url: https://{{data_api}}/data/v1/info
+    name: Retrieve identity information
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+    metaSortKey: -1650464868807
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_5fba152279354ec98861fccc944693c7
+    parentId: wrk_0123517a72cb4ea59eee0e9491b82d21
+    modified: 1656949833950
+    created: 1650464868758
+    name: Data API
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1650464868894.5
+    _type: request_group
+  - _id: req_9c5fee01a9dc46c790438a4cfe16aff6
+    parentId: fld_1283727900a04bfeb37d09061c868d50
+    modified: 1657209933444
+    created: 1650464868756
+    url: https://{{data_api}}/data/v1/accounts
+    name: List all accounts
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868756
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_1283727900a04bfeb37d09061c868d50
+    parentId: fld_5fba152279354ec98861fccc944693c7
+    modified: 1650464868757
+    created: 1650464868757
+    name: Accounts
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1650464868757
+    _type: request_group
+  - _id: req_1a4921b5984a45298361afaba48378f9
+    parentId: fld_1283727900a04bfeb37d09061c868d50
+    modified: 1656949489933
+    created: 1650464868754
+    url: https://{{data_api}}/data/v1/accounts/{% response 'body',
+      'req_9c5fee01a9dc46c790438a4cfe16aff6',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60 %}
+    name: Retrieve an account
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868754
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_903532e13caf415dbd7501ecd8b3d871
+    parentId: fld_1283727900a04bfeb37d09061c868d50
+    modified: 1656949492823
+    created: 1650464868750
+    url: https://{{data_api}}/data/v1/accounts/{% response 'body',
+      'req_9c5fee01a9dc46c790438a4cfe16aff6',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60 %}/balance
+    name: Retrieve account balance
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      prefix: Bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+    metaSortKey: -1650464868750
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1e77e9ef6f4c4d9496ced38ba4a04885
+    parentId: fld_1283727900a04bfeb37d09061c868d50
+    modified: 1657210186741
+    created: 1650464868749
+    url: https://{{data_api}}/data/v1/accounts/{% response 'body',
+      'req_9c5fee01a9dc46c790438a4cfe16aff6',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60 %}/transactions
+    name: Retrieve account transactions
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_d66cf8e96bbe4fa79fcb5b3acf75d02c
+        name: from
+        value: 2022-01-01
+        description: ""
+        disabled: true
+      - id: pair_fc8f9c465e8f4ff181fa36c014bd7c94
+        name: to
+        value: 2022-06-01
+        description: ""
+        disabled: true
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868749
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_4fe12b97a33c41079cdab7e8b77f047a
+    parentId: fld_1283727900a04bfeb37d09061c868d50
+    modified: 1656949499000
+    created: 1650464868748
+    url: https://{{data_api}}/data/v1/accounts/{% response 'body',
+      'req_9c5fee01a9dc46c790438a4cfe16aff6',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60
+      %}/transactions/pending
+    name: Retrieve account pending transactions
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868748
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a207eacf30c245748718cc084cb8d3df
+    parentId: fld_1283727900a04bfeb37d09061c868d50
+    modified: 1656949501838
+    created: 1650464868747
+    url: https://{{data_api}}/data/v1/accounts/{% response 'body',
+      'req_9c5fee01a9dc46c790438a4cfe16aff6',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60 %}/direct_debits
+    name: Retrieve direct debits
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868747
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2749ed90868b42aea0af1c593f0ba959
+    parentId: fld_1283727900a04bfeb37d09061c868d50
+    modified: 1656949504738
+    created: 1650464868745
+    url: https://{{data_api}}/data/v1/accounts/{% response 'body',
+      'req_9c5fee01a9dc46c790438a4cfe16aff6',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60
+      %}/standing_orders
+    name: Retrieve standing order
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868745
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c8d2b9bb71ff4ae595da358eed67254f
+    parentId: fld_1283727900a04bfeb37d09061c868d50
+    modified: 1657210227969
+    created: 1657209747496
+    url: https://{{data_api}}/data/v1/accounts/{% response 'body',
+      'req_9c5fee01a9dc46c790438a4cfe16aff6',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60 %}/transactions
+    name: AYSNC Retrieve account transactions
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_5a06d9de420346a78074dfa22904dcfe
+        name: async
+        value: "true"
+        description: ""
+        disabled: false
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868744
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e319920e3b544bf6bf94d4af56eaab52
+    parentId: fld_1283727900a04bfeb37d09061c868d50
+    modified: 1657209816434
+    created: 1650464868743
+    url: https://{{data_api}}/data/v1/results/{% response 'body',
+      'req_c8d2b9bb71ff4ae595da358eed67254f', 'b64::JC50YXNrX2lk::46b', 'never',
+      60 %}
+    name: ASYNC Retrieve results
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868743
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_007ec76e571242119b14e8dfe87b978a
+    parentId: fld_8fac1e11ab2e497daf33c07803204023
+    modified: 1656949628262
+    created: 1650464868741
+    url: https://{{data_api}}/data/v1/cards
+    name: List all cards
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868741
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_8fac1e11ab2e497daf33c07803204023
+    parentId: fld_5fba152279354ec98861fccc944693c7
+    modified: 1650464868742
+    created: 1650464868742
+    name: Cards
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1650464868742
+    _type: request_group
+  - _id: req_26307cf3253947dbb9b6c026d315b594
+    parentId: fld_8fac1e11ab2e497daf33c07803204023
+    modified: 1657209925092
+    created: 1650464868740
+    url: https://{{data_api}}/data/v1/cards/{% response 'body',
+      'req_007ec76e571242119b14e8dfe87b978a',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60 %}
+    name: Retrieve a card
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+    metaSortKey: -1650464868740
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a64f54d3f67f47c78d0d1aa355e53ff6
+    parentId: fld_8fac1e11ab2e497daf33c07803204023
+    modified: 1656949695771
+    created: 1650464868737
+    url: https://{{data_api}}/data/v1/cards/{% response 'body',
+      'req_007ec76e571242119b14e8dfe87b978a',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60 %}/balance
+    name: Retrieve a card balance
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+    metaSortKey: -1650464868737
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_873b6dd533b341dfb3134852383608e1
+    parentId: fld_8fac1e11ab2e497daf33c07803204023
+    modified: 1657209856857
+    created: 1650464868735
+    url: https://{{data_api}}/data/v1/cards/{% response 'body',
+      'req_007ec76e571242119b14e8dfe87b978a',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60 %}/transactions
+    name: Retrieve card transactions
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+    metaSortKey: -1650464868735
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_80062d10bfa44f7594326ca61fc4b338
+    parentId: fld_8fac1e11ab2e497daf33c07803204023
+    modified: 1656949713244
+    created: 1650464868733
+    url: https://{{data_api}}/data/v1/cards/{% response 'body',
+      'req_007ec76e571242119b14e8dfe87b978a',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60
+      %}/transactions/pending
+    name: Retrieve card pending transactions
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+    metaSortKey: -1650464868733
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9694f358a3654eb5b7ca43614d1174bd
+    parentId: fld_8fac1e11ab2e497daf33c07803204023
+    modified: 1657209949809
+    created: 1657209862952
+    url: https://{{data_api}}/data/v1/cards/{% response 'body',
+      'req_007ec76e571242119b14e8dfe87b978a',
+      'b64::JC5yZXN1bHRzWzBdLmFjY291bnRfaWQ=::46b', 'never', 60 %}/transactions
+    name: ASYNC Retrieve card transactions
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_ff9ddfd17e864309b10dfcfdb6c0e45a
+        name: async
+        value: "true"
+        description: ""
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+    metaSortKey: -1650464868683
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9b78304505d64f5a8e1aff75fcd31ee7
+    parentId: fld_8fac1e11ab2e497daf33c07803204023
+    modified: 1657209948524
+    created: 1657209890337
+    url: https://{{data_api}}/data/v1/results/{% response 'body',
+      'req_9694f358a3654eb5b7ca43614d1174bd', 'b64::JC50YXNrX2lk::46b', 'never',
+      60 %}
+    name: ASYNC Retrieve results
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'always', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868633
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_cff046f3662949eeb99108e9691e605d
+    parentId: fld_427f10dad8d541aaba156704f83474d9
+    modified: 1657210191750
+    created: 1650464868726
+    url: https://{{data_api}}/data/v1/batch/transactions
+    name: Create a batch task
+    description: ""
+    method: POST
+    body:
+      mimeType: ""
+      text: |-
+        {
+          "from": "2022-01-01",
+          "to": "2022-06-01",
+          "pending": true,
+          "balance": true,
+        	"webhook_uri": "{{ _.webhook_uri }}"
+        } 
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_865b089789374fd1ae5b19553127ba6a
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868726
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_427f10dad8d541aaba156704f83474d9
+    parentId: fld_5fba152279354ec98861fccc944693c7
+    modified: 1650464868727
+    created: 1650464868727
+    name: Batch
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1650464868727
+    _type: request_group
+  - _id: req_f0517e31cc96480faa43cdf2e41b3a42
+    parentId: fld_427f10dad8d541aaba156704f83474d9
+    modified: 1657210205348
+    created: 1650464868724
+    url: "{% response 'body', 'req_cff046f3662949eeb99108e9691e605d',
+      'b64::JC5yZXN1bHRzX3VyaQ==::46b', 'never', 60 %}"
+    name: Retrieve batch results
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_d2a50599f3b541a29c0d6e54426be993',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      prefix: Bearer
+    metaSortKey: -1650464868724
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_237dfa64e116b82bbc2d0796ff959e21a42727c1
+    parentId: wrk_0123517a72cb4ea59eee0e9491b82d21
+    modified: 1657213146082
+    created: 1650464878646
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: {}
+    color: null
+    isPrivate: false
+    metaSortKey: 1650464878646
+    _type: environment
+  - _id: jar_237dfa64e116b82bbc2d0796ff959e21a42727c1
+    parentId: wrk_0123517a72cb4ea59eee0e9491b82d21
+    modified: 1650464878649
+    created: 1650464878649
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_ecbdf28ef2a14677a2dca128a5193d6d
+    parentId: wrk_0123517a72cb4ea59eee0e9491b82d21
+    modified: 1650464874065
+    created: 1650464874065
+    fileName: My Collection
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_95f2b78aab664cba99e3c258bba619c4
+    parentId: env_237dfa64e116b82bbc2d0796ff959e21a42727c1
+    modified: 1657213047862
+    created: 1650529538216
+    name: TrueLayer <Live>
+    data:
+      status_api: status-api.truelayer.com
+      data_api: api.truelayer.com
+      auth_api: auth.truelayer.com
+      auth_analytics_api: client-tracking.truelayer.com
+      client_id: ""
+      client_secret: ""
+      redirect_uri: https://console.truelayer.com/redirect-page
+      webhook_uri: https://example.com/webhook
+    dataPropertyOrder:
+      "&":
+        - status_api
+        - data_api
+        - auth_api
+        - auth_analytics_api
+        - client_id
+        - client_secret
+        - redirect_uri
+        - webhook_uri
+    color: null
+    isPrivate: false
+    metaSortKey: 0
+    _type: environment
+  - _id: env_dd301f80dd3c4830b55b56d5e0ceba4a
+    parentId: env_237dfa64e116b82bbc2d0796ff959e21a42727c1
+    modified: 1657213047862
+    created: 1650529551213
+    name: TrueLayer <Sandbox>
+    data:
+      status_api: status-api.truelayer.com
+      data_api: api.truelayer-sandbox.com
+      auth_api: auth.truelayer-sandbox.com
+      auth_analytics_api: client-tracking.truelayer-sandbox.com
+      client_id: ""
+      client_secret: ""
+      redirect_uri: https://console.truelayer.com/redirect-page
+      webhook_uri: https://example.com/webhook
+    dataPropertyOrder:
+      "&":
+        - status_api
+        - data_api
+        - auth_api
+        - auth_analytics_api
+        - client_id
+        - client_secret
+        - redirect_uri
+        - webhook_uri
+    color: null
+    isPrivate: false
+    metaSortKey: 1
+    _type: environment
