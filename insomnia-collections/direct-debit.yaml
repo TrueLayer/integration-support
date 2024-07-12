@@ -1,0 +1,487 @@
+_type: export
+__export_format: 4
+__export_date: 2024-07-12T08:01:40.997Z
+__export_source: insomnia.desktop.app:v2023.1.0
+resources:
+  - _id: req_bd2c0a4121704752a13491d87728f8c9
+    parentId: fld_e3d8673e3731465ba0b815d9c26940e1
+    modified: 1707909564664
+    created: 1707909564664
+    url: "{{ _.AUTH_SERVER_URI }}/connect/token"
+    name: Generate Access Token
+    description: ""
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - description: ""
+          id: pair_c22e9af536f74fe0a5e747fc6eecad6d
+          name: client_id
+          value: "{{ _.CLIENT_ID }}"
+        - description: ""
+          id: pair_df17b794d78f4d03be3b6c37527422c8
+          name: client_secret
+          value: "{{ _.CLIENT_SECRET }}"
+        - description: ""
+          id: pair_b84a19cd1a1c4b23890b5d38cd2d94f1
+          name: scope
+          value: payments
+        - description: ""
+          id: pair_6e922ac379d94ced8366d885e25bf73f
+          name: grant_type
+          value: client_credentials
+    parameters: []
+    headers:
+      - id: pair_26023e9f97d54b1d8845ae4f2493e413
+        name: Content-Type
+        value: application/x-www-form-urlencoded
+    authentication: {}
+    metaSortKey: -1612882494823.3125
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_e3d8673e3731465ba0b815d9c26940e1
+    parentId: wrk_35ba728d03c548b68b087106738bcdec
+    modified: 1707909564663
+    created: 1707909564663
+    name: Authentication
+    description: ""
+    environment: {}
+    environmentPropertyOrder: {}
+    metaSortKey: -1635961782159
+    _type: request_group
+  - _id: wrk_35ba728d03c548b68b087106738bcdec
+    parentId: null
+    modified: 1720771278304
+    created: 1718359847210
+    name: TL Direct Debit collection
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_e61a49eeb0ed4f2fb5b8074a71ea3f98
+    parentId: fld_e3d8673e3731465ba0b815d9c26940e1
+    modified: 1707909564664
+    created: 1707909564664
+    url: "{{ _.AUTH_SERVER_URI }}/connect/token"
+    name: Generate Access Token - Mandate
+    description: ""
+    method: POST
+    body:
+      mimeType: application/x-www-form-urlencoded
+      params:
+        - description: ""
+          id: pair_c22e9af536f74fe0a5e747fc6eecad6d
+          name: client_id
+          value: "{{ _.CLIENT_ID }}"
+        - description: ""
+          id: pair_df17b794d78f4d03be3b6c37527422c8
+          name: client_secret
+          value: "{{ _.CLIENT_SECRET }}"
+        - description: ""
+          id: pair_b84a19cd1a1c4b23890b5d38cd2d94f1
+          name: scope
+          value: recurring_payments:sweeping
+          disabled: true
+        - description: ""
+          id: pair_6e922ac379d94ced8366d885e25bf73f
+          name: grant_type
+          value: client_credentials
+          disabled: false
+        - id: pair_60b83516aa964b7688b31d7bb4593622
+          name: scope
+          value: payments recurring_payments:sweeping
+          description: ""
+    parameters: []
+    headers:
+      - id: pair_29f5d394fc6d49c9a02a160176f2129e
+        name: Content-Type
+        value: application/x-www-form-urlencoded
+      - description: ""
+        id: pair_a7921d11858c47ed89f874b6eb2b069f
+        name: ""
+        value: ""
+    authentication: {}
+    metaSortKey: -1612882494723.3125
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8a54d092c1034b37b9e21d0813c18df0
+    parentId: fld_96cc181a988d4356bce797c87830fb88
+    modified: 1718360017247
+    created: 1707909564665
+    url: "{{ _.ENVIRONMENT_URI }}/v3/merchant-accounts"
+    name: List Merchant Accounts
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+      type: bearer
+    metaSortKey: -1635957334614.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_96cc181a988d4356bce797c87830fb88
+    parentId: wrk_35ba728d03c548b68b087106738bcdec
+    modified: 1707909564665
+    created: 1707909564665
+    name: Merchant Accounts
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1635928071486.25
+    _type: request_group
+  - _id: req_c193633038ed4549bae287a1e0e60bbe
+    parentId: fld_480ea4ce25fb4bd9a1017f8542cf4023
+    modified: 1720770301989
+    created: 1720018816718
+    url: "{{ _.ENVIRONMENT_URI }}/v3/mandates"
+    name: Create Mandate (merchant account)
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"mandate": {
+        		"type": "direct_debit",
+        		"remitter": {
+              "account_holder_name": "{% prompt 'Account holder name', '', '', '', false, true %}",
+              "account_identifier": {
+                "type": "sort_code_account_number",
+                "sort_code": "{% prompt 'Sort code', 'Sort code', '123456', '', false, true %}",
+                "account_number": "{% prompt 'Account number', 'Account number', '12345678', '', false, true %}"
+        			}
+        		},
+        		"beneficiary": {
+        			"type": "merchant_account",
+        			"merchant_account_id": "{% prompt 'Merchant account id', 'Merchant account id', '123', '', false, true %}"
+        		}
+        	},
+        	"currency": "GBP",
+        	"user": {
+        		"id": "{% uuid 'v4' %}",
+        		"name": "{% prompt 'Name', '', '', '', false, true %}",
+        		"email": "{% prompt 'User Email', '', '', '', false, true %}",
+        		"phone": "{% prompt 'Phone', 'Please prefix with + and country code', '', '', false, true %}"
+        	}
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_e922a8f0d84549879a3912ed4e4fdbde
+      - id: pair_bf90243f468e4fbcbdd08f362e2485fe
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+    metaSortKey: 50
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_480ea4ce25fb4bd9a1017f8542cf4023
+    parentId: fld_14266e48cf374b529d5c005dc17453ec
+    modified: 1720018816708
+    created: 1720018816708
+    name: Merchant Account
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1648351513113.5
+    _type: request_group
+  - _id: fld_14266e48cf374b529d5c005dc17453ec
+    parentId: wrk_35ba728d03c548b68b087106738bcdec
+    modified: 1720018816686
+    created: 1720018816686
+    name: Direct Debit - Mandates
+    description: ""
+    environment: {}
+    environmentPropertyOrder: {}
+    metaSortKey: -874999943.75
+    _type: request_group
+  - _id: req_8f7b3f32ea4b4393959d69fb8e6d03d4
+    parentId: fld_480ea4ce25fb4bd9a1017f8542cf4023
+    modified: 1720085283602
+    created: 1720018816716
+    url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
+      'req_c193633038ed4549bae287a1e0e60bbe', 'b64::JC5pZA==::46b', 'never', 60
+      %}"
+    name: Get Mandate
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+    metaSortKey: 300
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a0628854ecc44b4f90371d5f6e8f5797
+    parentId: fld_480ea4ce25fb4bd9a1017f8542cf4023
+    modified: 1720770401281
+    created: 1720018816715
+    url: "{{ _.ENVIRONMENT_URI }}/v3/mandates?user_id={% response 'body',
+      'req_c193633038ed4549bae287a1e0e60bbe', 'b64::JC51c2VyLmlk::46b', 'never',
+      60 %}&limit={% prompt 'Limit', 'mandates per page', '25', '', false, true
+      %}"
+    name: List Mandates
+    description: >-
+      As is, this request will always return 1 mandate. To get more than one
+      mandate, make sure to disable generating a new random user_id on every
+      Create Mandate request.
+
+
+      Maximum number of items included in the returned window. Should be greater than 0 and less than 50.
+
+
+      If not set, a default of 25 is considered.
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+    metaSortKey: 325
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_51e129d34284415aa96ba7a4767c9036
+    parentId: fld_90688e0192244ede8fe0e9142e41b274
+    modified: 1720085946221
+    created: 1720018816709
+    url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
+    name: Create Payment
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"payment_method": {
+        		"type": "mandate",
+        		"mandate_id": "{% response 'body', 'req_c193633038ed4549bae287a1e0e60bbe', 'b64::JC5pZA==::46b', 'never', 60 %}"
+        	},
+        	"amount_in_minor": 1,
+        	"reference": "{% prompt 'Reference', 'Reference', 'reference123', '', false, true %}",
+        	"currency": "GBP"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_e922a8f0d84549879a3912ed4e4fdbde
+      - id: pair_bf90243f468e4fbcbdd08f362e2485fe
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+    metaSortKey: -1643121940196
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_90688e0192244ede8fe0e9142e41b274
+    parentId: fld_480ea4ce25fb4bd9a1017f8542cf4023
+    modified: 1720018816708
+    created: 1720018816708
+    name: Payment
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: 400
+    _type: request_group
+  - _id: req_27aead57607e4153a63c251b35ae1a54
+    parentId: fld_90688e0192244ede8fe0e9142e41b274
+    modified: 1720517477646
+    created: 1720018816710
+    url: "{{ _.ENVIRONMENT_URI }}/v3/payments/{% response 'body',
+      'req_51e129d34284415aa96ba7a4767c9036', 'b64::JC5pZA==::46b', 'never', 60
+      %}"
+    name: Get Payment
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+    metaSortKey: -1643121940146
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f5c78da36f1a4a1995b4585ca530ca6b
+    parentId: fld_480ea4ce25fb4bd9a1017f8542cf4023
+    modified: 1720769041408
+    created: 1720018816712
+    url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
+      'req_c193633038ed4549bae287a1e0e60bbe', 'b64::JC5pZA==::46b', 'never', 60
+      %}/revoke"
+    name: Revoke Mandate
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers:
+      - id: pair_bf90243f468e4fbcbdd08f362e2485fe
+        name: Idempotency-Key
+        value: "{% uuid 'v4' %}"
+        description: ""
+        disabled: false
+      - id: pair_565909f5f02d4a7c9b64c6a65de87b1a
+        name: ""
+        value: ""
+        description: ""
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+    metaSortKey: 500
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_5cde1fdf29084b2bac783e3c034f76c1
+    parentId: wrk_35ba728d03c548b68b087106738bcdec
+    modified: 1707909564656
+    created: 1707909564656
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1686653298731
+    _type: environment
+  - _id: jar_aa415129f54b4943a38a43be132f2d22
+    parentId: wrk_35ba728d03c548b68b087106738bcdec
+    modified: 1707909564660
+    created: 1707909564660
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_d5acf7b1230747838598368e241fe8ac
+    parentId: wrk_35ba728d03c548b68b087106738bcdec
+    modified: 1720017304006
+    created: 1720017304006
+    fileName: TL Payments v3 collection
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_7910ef6a3a5b428ab862c93939cf506d
+    parentId: env_5cde1fdf29084b2bac783e3c034f76c1
+    modified: 1720771238031
+    created: 1707909564657
+    name: Production Env
+    data:
+      ENVIRONMENT_URI: https://api.truelayer.com
+      AUTH_SERVER_URI: https://auth.truelayer.com
+      REQUIRE_JWS: true
+      CLIENT_ID: ""
+      CLIENT_SECRET: ""
+      CERTIFICATE_ID: ""
+      PRIVATE_KEY: ""
+      RETURN_URI: https://console.truelayer.com/redirect-page
+    dataPropertyOrder:
+      "&":
+        - ENVIRONMENT_URI
+        - AUTH_SERVER_URI
+        - REQUIRE_JWS
+        - CLIENT_ID
+        - CLIENT_SECRET
+        - CERTIFICATE_ID
+        - PRIVATE_KEY
+        - RETURN_URI
+    color: null
+    isPrivate: false
+    metaSortKey: 1690384195128
+    _type: environment
+  - _id: env_12d75d6245e444fcb061616799202b4d
+    parentId: env_5cde1fdf29084b2bac783e3c034f76c1
+    modified: 1720771251798
+    created: 1720019828904
+    name: Development Env
+    data:
+      ENVIRONMENT_URI: https://api.t7r.dev
+      AUTH_SERVER_URI: https://auth.t7r.dev
+      REQUIRE_JWS: true
+      CLIENT_ID: ""
+      CLIENT_SECRET: ""
+      CERTIFICATE_ID: ""
+      PRIVATE_KEY: ""
+      RETURN_URI: https://console.t7r.dev/redirect-page
+    dataPropertyOrder:
+      "&":
+        - ENVIRONMENT_URI
+        - AUTH_SERVER_URI
+        - REQUIRE_JWS
+        - CLIENT_ID
+        - CLIENT_SECRET
+        - CERTIFICATE_ID
+        - PRIVATE_KEY
+        - RETURN_URI
+    color: null
+    isPrivate: false
+    metaSortKey: 1720019828904
+    _type: environment
