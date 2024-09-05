@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2024-09-05T15:51:56.637Z
+__export_date: 2024-09-05T15:53:11.127Z
 __export_source: insomnia.desktop.app:v2023.1.0
 resources:
   - _id: req_bd2c0a4121704752a13491d87728f8c9
@@ -3332,7 +3332,7 @@ resources:
     _type: request
   - _id: req_543b22507d614ff3848fbeecaf4a1745
     parentId: fld_3666bfe18e4042199ba4885a4b41fccd
-    modified: 1725551342087
+    modified: 1725551564370
     created: 1724083150124
     url: "{{ _.ENVIRONMENT_URI }}/signup-plus/payments"
     name: 7F. Get data for age-verified payment
@@ -3364,21 +3364,6 @@ resources:
       | 25000-34999 | User data not found                  | Error |
 
       | >35000      | Range reserved for new scenarios. Defaults to User data not found error. | Error |
-
-
-      | Value of `amount_in_minor` | Signup+ response                    |
-
-      | -------------------------- | ----------------------------------- |
-
-      | 1 - 1800                   | Success: identity data found        |
-
-      | < 10000                    | Success: identity data found        |
-
-      | < 10000                    | Success: identity data found        |
-
-      | 10000 - 25000 (inclusive)  | Error: joint accounts not supported |
-
-      | > 25000                    | Error: user data not found          |
 
 
       [Learn more about testing Signup+ in Sandbox](https://docs.truelayer.com/docs/signup-sandbox).
