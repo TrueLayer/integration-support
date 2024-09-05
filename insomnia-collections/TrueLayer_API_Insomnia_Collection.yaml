@@ -1,16 +1,23 @@
 _type: export
 __export_format: 4
-__export_date: 2024-08-30T14:45:18.862Z
+__export_date: 2024-09-05T15:51:56.637Z
 __export_source: insomnia.desktop.app:v2023.1.0
 resources:
   - _id: req_bd2c0a4121704752a13491d87728f8c9
     parentId: fld_e3d8673e3731465ba0b815d9c26940e1
-    modified: 1724949169929
+    modified: 1725547056940
     created: 1707909564664
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: 1A. Generate access token
-    description: "## [See this request in our API
-      reference](https://docs.truelayer.com/reference/generateaccesstoken)"
+    description: >-
+      ## [See this request in our API
+      reference](https://docs.truelayer.com/reference/generateaccesstoken)
+
+
+      Use this request to generate an `access_token` for most of the requests in this collection except for VRP and Signup+ requests.
+
+
+      You can reference the result of this request as a 'Bearer' token for any new requests you make.
     method: POST
     body:
       mimeType: application/x-www-form-urlencoded
@@ -67,12 +74,19 @@ resources:
     _type: workspace
   - _id: req_e61a49eeb0ed4f2fb5b8074a71ea3f98
     parentId: fld_e3d8673e3731465ba0b815d9c26940e1
-    modified: 1724949179107
+    modified: 1725547133394
     created: 1707909564664
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: 1B. Generate access token - Mandate
-    description: "## [See this request in our API
-      reference](https://docs.truelayer.com/reference/generateaccesstoken)"
+    description: >-
+      ## [See this request in our API
+      reference](https://docs.truelayer.com/reference/generateaccesstoken)
+
+
+      Use this request to generate an `access_token` for the VRP-related requests in this collection.
+
+
+      Note that payments on a mandate should also have the `recurring_payments:sweeping` or `recurring_payments:commercial` scopes, not just mandates themselves.
     method: POST
     body:
       mimeType: application/x-www-form-urlencoded
@@ -120,12 +134,16 @@ resources:
     _type: request
   - _id: req_6a1d85dcef0d45f7985245d59ef95360
     parentId: fld_e3d8673e3731465ba0b815d9c26940e1
-    modified: 1724949184513
+    modified: 1725547159019
     created: 1723737465425
     url: "{{ _.AUTH_SERVER_URI }}/connect/token"
     name: 1C. Generate access token - Signup+
-    description: "## [See this request in our API
-      reference](https://docs.truelayer.com/reference/generateaccesstoken)"
+    description: >-
+      ## [See this request in our API
+      reference](https://docs.truelayer.com/reference/generateaccesstoken)
+
+
+      Use this request to generate an `access_token` for the Signup+ requests in this collection.
     method: POST
     body:
       mimeType: application/x-www-form-urlencoded
@@ -163,10 +181,10 @@ resources:
     _type: request
   - _id: req_8a54d092c1034b37b9e21d0813c18df0
     parentId: fld_96cc181a988d4356bce797c87830fb88
-    modified: 1724949213640
+    modified: 1725548750191
     created: 1707909564665
     url: "{{ _.ENVIRONMENT_URI }}/v3/merchant-accounts"
-    name: 2A. List Merchant Accounts
+    name: 2A. List merchant accounts
     description: >-
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/list-operating-accounts)
@@ -194,13 +212,13 @@ resources:
     _type: request
   - _id: fld_96cc181a988d4356bce797c87830fb88
     parentId: wrk_35ba728d03c548b68b087106738bcdec
-    modified: 1724949192444
+    modified: 1725378784314
     created: 1707909564665
     name: 2. Merchant accounts
     description: ""
     environment: {}
     environmentPropertyOrder: null
-    metaSortKey: -1635928071486.25
+    metaSortKey: -1635944926822.625
     _type: request_group
   - _id: req_0f4557c0caac418e938984aea752a0f4
     parentId: fld_96cc181a988d4356bce797c87830fb88
@@ -306,14 +324,20 @@ resources:
     _type: request
   - _id: req_aa093cf023824addb905e2dacf890cb5
     parentId: fld_96cc181a988d4356bce797c87830fb88
-    modified: 1724949259662
+    modified: 1725547332407
     created: 1707909564667
     url: "{{ _.ENVIRONMENT_URI }}/v3/merchant-accounts/{% prompt 'Merchant Account
       ID', '', '', '', false, true %}/sweeping"
     name: 2D. Set up or update sweeping settings
-    description: >
+    description: >-
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/merchant-account-setup-sweeping)
+
+
+      Use this request to set up sweeping settings for your GBP merchant account.
+
+
+      Note that while you can set the sweeping amount and frequency, and see these reflected in the sandbox environment in Console, sandbox doesn't actually sweep funds.
     method: POST
     body:
       mimeType: application/json
@@ -345,14 +369,20 @@ resources:
     _type: request
   - _id: req_24ea9d673be94d13a4f68644083e3840
     parentId: fld_96cc181a988d4356bce797c87830fb88
-    modified: 1724949279457
+    modified: 1725547343519
     created: 1707909564668
     url: "{{ _.ENVIRONMENT_URI }}/v3/merchant-accounts/{% prompt 'Merchant Account
       ID', '', '', '', false, true %}/sweeping"
     name: 2E. Set up or update sweeping settings - EUR merchant account
-    description: "## [See this request in our API
-      reference](https://docs.truelayer.com/reference/merchant-account-setup-sw\
-      eeping)"
+    description: >-
+      ## [See this request in our API
+      reference](https://docs.truelayer.com/reference/merchant-account-setup-sweeping)
+
+
+      Use this request to set up sweeping settings for your GBP merchant account.
+
+
+      Note that while you can set the sweeping amount and frequency, and see these reflected in the sandbox environment in Console, sandbox doesn't actually sweep funds.
     method: POST
     body:
       mimeType: application/json
@@ -385,14 +415,20 @@ resources:
     _type: request
   - _id: req_681541101b6e4dab92d7935ab1bd409f
     parentId: fld_96cc181a988d4356bce797c87830fb88
-    modified: 1724949303904
+    modified: 1725547500483
     created: 1707909564668
     url: "{{ _.ENVIRONMENT_URI }}/v3/merchant-accounts/{% prompt 'Merchant Account
       ID', '', '', '', false, true %}/sweeping"
     name: 2F. Get existing sweeping settings
-    description: >
+    description: >-
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/merchant-account-get-sweeping)
+
+
+      Use this request to check your existing sweeping settings for your merchant account without editing them.
+
+
+      You can also check your sweeping settings in the **Merchant Account** tab in Console.
     method: GET
     body:
       mimeType: application/json
@@ -420,14 +456,20 @@ resources:
     _type: request
   - _id: req_d57df8e27cdf432a948690721fe3dde3
     parentId: fld_96cc181a988d4356bce797c87830fb88
-    modified: 1724949320134
+    modified: 1725547491488
     created: 1707909564667
     url: "{{ _.ENVIRONMENT_URI }}/v3/merchant-accounts/{% prompt 'Merchant Account
       ID', '', '', '', false, true %}/sweeping"
     name: 2G. Delete sweeping settings
-    description: >
+    description: >-
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/merchant-account-disable-sweeping)
+
+
+      Use this request to delete the existing sweeping settings for a merchant account. You get a **204 No Response** response to your request, but this means it's successful.
+
+
+      You can check it was successful with the **2F. Get existing sweeping settings** request.
     method: DELETE
     body:
       mimeType: application/json
@@ -455,14 +497,23 @@ resources:
     _type: request
   - _id: req_936ba640eb7e4e388443a7adafe5968b
     parentId: fld_96cc181a988d4356bce797c87830fb88
-    modified: 1724949331988
+    modified: 1725548353269
     created: 1724247859008
     url: "{{ _.ENVIRONMENT_URI }}/v3/merchant-accounts/{% prompt 'Merchant Account
       ID', '', '', '', false, true %}/payment-sources"
     name: 2H. Get merchant account payment sources
-    description: >
+    description: >-
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/get-merchant-account-payment-sources)
+
+
+      Use this endpoint to get the full list of payment sources that have made a payment to your merchant account. A payment source includes a user's name, payment source `id`, and bank details.
+
+
+      You use the payment source `id` as the basis of a closed-loop payout.
+
+
+      Note that in the sandbox environment, you only get a single payment source in response to this endpoint.
     method: GET
     body: {}
     parameters:
@@ -487,7 +538,7 @@ resources:
     _type: request
   - _id: req_b1202c141d7d46e1a7b516f320697587
     parentId: fld_b75a2aecb6824c269da05e0d414bdb6c
-    modified: 1724949352310
+    modified: 1725548498420
     created: 1707909564688
     url: "{{ _.ENVIRONMENT_URI }}/v3/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}"
@@ -495,6 +546,12 @@ resources:
     description: >
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/get-payment-1)
+
+
+      Use this request to check the [status of a payment](https://docs.truelayer.com/reference/payment-statuses), and retrieve other related information.
+
+
+      Note that you can also get this information by [setting up webhooks](https://docs.truelayer.com/docs/configure-webhooks-for-your-integration), or by checking the [**Payments** page in Console](https://docs.truelayer.com/docs/payments-view).
     method: GET
     body: {}
     parameters: []
@@ -524,7 +581,7 @@ resources:
     _type: request_group
   - _id: req_a3417828f9f24a51aa33bfeeb272bb9d
     parentId: fld_b75a2aecb6824c269da05e0d414bdb6c
-    modified: 1724949368100
+    modified: 1725548585966
     created: 1707909564689
     url: "{{ _.ENVIRONMENT_URI }}/v3/payments/{% prompt 'Payment ID', '', '', '',
       false, true %}/actions/cancel"
@@ -532,6 +589,9 @@ resources:
     description: >
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/cancel-payment)
+
+
+      Use this endpoint to [cancel an existing payment](https://docs.truelayer.com/docs/cancel-a-payment). Note that a payment can only be canceled up to the `authorizing` status. Once it reaches `authorized` status, you can no longer cancel it.
     method: POST
     body:
       mimeType: application/json
@@ -559,13 +619,24 @@ resources:
     _type: request
   - _id: req_785b823bb82a4649951aac8cec360838
     parentId: fld_b4a9b9b1330e414f9a175829d25c1749
-    modified: 1724949412340
+    modified: 1725548741664
     created: 1707909564684
     url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
     name: 3C. Create payment
-    description: >
+    description: >-
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/create-payment)
+
+
+      Use this request to make a GBP payment into your GBP merchant account.
+
+
+      You're prompted for your merchant account ID, which you can get through either:
+
+
+      - The **2A. List merchant accounts** request in this collection.
+
+      - The [**Merchant Account** dashboard in Console](https://docs.truelayer.com/docs/merchant-account-dashboard).
     method: POST
     body:
       mimeType: application/json
@@ -586,7 +657,7 @@ resources:
         		"beneficiary": {
         			"type": "merchant_account",
         			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint.', '', '', false, true %}",
-        			"reference": "fedeTest 123 1"
+        			"reference": "Test payment"
         		}
         	},
         	"user": {
@@ -647,7 +718,7 @@ resources:
     _type: request_group
   - _id: req_1fdcb163ec3c47a8bb79320fcbfeed30
     parentId: fld_b4a9b9b1330e414f9a175829d25c1749
-    modified: 1724249375237
+    modified: 1725460421287
     created: 1707909564684
     url: https://payment.truelayer-sandbox.com/payments#payment_id={% response
       'body', 'req_785b823bb82a4649951aac8cec360838', 'b64::JC5pZA==::46b',
@@ -682,7 +753,7 @@ resources:
       token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
         'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
       type: bearer
-    metaSortKey: -1647883820553.5
+    metaSortKey: -1647883833479.25
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
@@ -2878,19 +2949,47 @@ resources:
     _type: request
   - _id: req_1e42872b2edc434d8e83ac1dca72fbc5
     parentId: fld_3295af04a65943b697a22ec844e2f48b
-    modified: 1724952434916
+    modified: 1725551390687
     created: 1723737370397
     url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
     name: 7A. Create payment
-    description: >
+    description: >-
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/create-payment)
+
+
+      ## Testing result thresholds
+
+
+      When you make a identity data request to the `/signup-plus/payments` endpoint, the response you get depends on the value of the `amount_in_minor` parameter at payment creation. These are the possible results and thresholds:
+
+
+      | Value of `amount_in_minor`      | Signup+ response | Response type |
+
+      | :---------- | :----------------------------------  | ------- |
+
+      | 0-1799      | Test user data 1: Tommie Burke.      | Success |
+
+      | 1800-2099   | Test user data 2: Leon Gordon.       | Success |
+
+      | 2100-2199   | Test user data 3: Isabella Allen.    | Success |
+
+      | 2200-9999   | Range reserved for new test users. Defaults to test user data 3: Leon Gordon. | Success |
+
+      | 10000-24999 | Joint accounts not supported.        | Error |
+
+      | 25000-34999 | User data not found                  | Error |
+
+      | >35000      | Range reserved for new scenarios. Defaults to User data not found error. | Error |
+
+
+      [Learn more about testing Signup+ in Sandbox](https://docs.truelayer.com/docs/signup-sandbox).
     method: POST
     body:
       mimeType: application/json
       text: >-
         {
-        	"amount_in_minor": 1,
+        	"amount_in_minor": 10000,
         	"currency": "GBP",
         	"payment_method": {
         		"provider_selection": {
@@ -2905,11 +3004,10 @@ resources:
         		"beneficiary": {
         			"type": "merchant_account",
         			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}",
-        			"reference": "fedeTest 123 1"
+        			"reference": "Test payment"
         		}
         	},
         	"user": {
-        		"id": "f61c0ec7-0f83-414e-8e5f-aace86e0ed35",
         		"name": "Jonathan Sandbridge",
         		"email": "john@sandbridge.com",
         		"phone": "+44123456789",
@@ -2922,7 +3020,7 @@ resources:
         			"country_code": "GB"
         		}
         	},
-        	"related_product": {
+        	"related_products": {
         		"signup_plus": {}
         	}
         }
@@ -3015,13 +3113,41 @@ resources:
     _type: request
   - _id: req_c2d7d7c1263b400aa0dcf5ee69c78ba1
     parentId: fld_3295af04a65943b697a22ec844e2f48b
-    modified: 1724953379793
+    modified: 1725551373906
     created: 1723738498092
     url: "{{ _.ENVIRONMENT_URI }}/signup-plus/payments"
     name: 7C. Get Signup+ data for standard payment
-    description: >
+    description: >-
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/getuserdatabypayment)
+
+
+      ## Testing result thresholds
+
+
+      When you make a identity data request to the `/signup-plus/payments` endpoint, the response you get depends on the value of the `amount_in_minor` parameter at payment creation. These are the possible results and thresholds:
+
+
+      | Value of `amount_in_minor`      | Signup+ response | Response type |
+
+      | :---------- | :----------------------------------  | ------- |
+
+      | 0-1799      | Test user data 1: Tommie Burke.      | Success |
+
+      | 1800-2099   | Test user data 2: Leon Gordon.       | Success |
+
+      | 2100-2199   | Test user data 3: Isabella Allen.    | Success |
+
+      | 2200-9999   | Range reserved for new test users. Defaults to test user data 3: Leon Gordon. | Success |
+
+      | 10000-24999 | Joint accounts not supported.        | Error |
+
+      | 25000-34999 | User data not found                  | Error |
+
+      | >35000      | Range reserved for new scenarios. Defaults to User data not found error. | Error |
+
+
+      [Learn more about testing Signup+ in Sandbox](https://docs.truelayer.com/docs/signup-sandbox).
     method: GET
     body: {}
     parameters:
@@ -3046,10 +3172,10 @@ resources:
     _type: request
   - _id: req_459739c39fce414caed0d24b0eb67db1
     parentId: fld_3666bfe18e4042199ba4885a4b41fccd
-    modified: 1724953403831
+    modified: 1725551491872
     created: 1723738444185
     url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
-    name: 7D. Create Payment
+    name: 7D. Create payment
     description: >-
       ## [See this request in our API
       reference](https://docs.truelayer.com/reference/create-payment)
@@ -3068,17 +3194,17 @@ resources:
       When you make a payment creation request that includes the `verification.remitter_date_of_birth` parameter, The value of the `amount_in_minor` parameter determines which response you get.
 
 
-      | Value of `amount_in_minor`      | Signup+ response                    |
+      | Value of `amount_in_minor`	| Signup+ response | Response type |
 
-      | :---------- | :---------------------------------- |
+      | :--- | :--- | :--- |
 
-      | < 1800      | Error: Age not legal                |
+      |<1800	| Age not legal. |	Error |
 
-      | 1800-10000  | Success: Identity data found        |
+      | 1800-9999	| Identity data found.	| Success |
 
-      | 10000-25000 | Error: Joint accounts not supported |
+      | 10000-24999 |	Joint accounts not supported. |	Error |
 
-      | > 25000     | Error: User data not found          |
+      | >25000 |	User data not found.	| Error |
 
 
       [Learn more about testing Signup+ in Sandbox](https://docs.truelayer.com/docs/signup-sandbox).
@@ -3206,7 +3332,7 @@ resources:
     _type: request
   - _id: req_543b22507d614ff3848fbeecaf4a1745
     parentId: fld_3666bfe18e4042199ba4885a4b41fccd
-    modified: 1724953387830
+    modified: 1725551342087
     created: 1724083150124
     url: "{{ _.ENVIRONMENT_URI }}/signup-plus/payments"
     name: 7F. Get data for age-verified payment
@@ -3221,9 +3347,32 @@ resources:
       When you make a identity data request to the `/signup-plus/payments` endpoint, the response you get depends on the value of the `amount_in_minor` parameter at payment creation. These are the possible results and thresholds:
 
 
+      | Value of `amount_in_minor`      | Signup+ response | Response type |
+
+      | :---------- | :----------------------------------  | ------- |
+
+      | 0-1799      | Test user data 1: Tommie Burke.      | Success |
+
+      | 1800-2099   | Test user data 2: Leon Gordon.       | Success |
+
+      | 2100-2199   | Test user data 3: Isabella Allen.    | Success |
+
+      | 2200-9999   | Range reserved for new test users. Defaults to test user data 3: Leon Gordon. | Success |
+
+      | 10000-24999 | Joint accounts not supported.        | Error |
+
+      | 25000-34999 | User data not found                  | Error |
+
+      | >35000      | Range reserved for new scenarios. Defaults to User data not found error. | Error |
+
+
       | Value of `amount_in_minor` | Signup+ response                    |
 
       | -------------------------- | ----------------------------------- |
+
+      | 1 - 1800                   | Success: identity data found        |
+
+      | < 10000                    | Success: identity data found        |
 
       | < 10000                    | Success: identity data found        |
 
@@ -3457,7 +3606,7 @@ resources:
     _type: environment
   - _id: env_28d8b3df6b3a4507ae84389efd86b93b
     parentId: env_5cde1fdf29084b2bac783e3c034f76c1
-    modified: 1725029081200
+    modified: 1725445953605
     created: 1707909564658
     name: Sandbox Sample Env
     data:
