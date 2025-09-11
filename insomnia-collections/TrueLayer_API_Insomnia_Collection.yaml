@@ -1,14 +1,14 @@
 type: collection.insomnia.rest/5.0
 name: TrueLayer API collection
 meta:
-  id: wrk_f16e2487a64544e0bc824ad4d954b363
-  created: 1757538593639
-  modified: 1757538593639
+  id: wrk_33f7496f78774f33816e95f7a6098436
+  created: 1757582236465
+  modified: 1757583401374
   description: ""
 collection:
   - name: 1. Authentication
     meta:
-      id: fld_620516960e3f47d4a3c25ac084119421
+      id: fld_dc2af6c0f26741de949069da74e365db
       created: 1707909564663
       modified: 1723734613355
       sortKey: -1635961782159
@@ -17,7 +17,7 @@ collection:
       - url: "{{ _.AUTH_SERVER_URI }}/connect/token"
         name: 1B. Generate access token - Mandate
         meta:
-          id: req_2ba178c56faf431c977958ba58003c5d
+          id: req_7787810af67a4f528ffffb88605dc318
           created: 1707909564664
           modified: 1725547133394
           isPrivate: false
@@ -79,7 +79,7 @@ collection:
       - url: "{{ _.AUTH_SERVER_URI }}/connect/token"
         name: 1A. Generate access token
         meta:
-          id: req_5b8fc97822bc44dfa8dae20833bf22c1
+          id: req_f5ed13d6690347f5a0a58ae7ec483b67
           created: 1707909564664
           modified: 1757538058584
           isPrivate: false
@@ -132,7 +132,7 @@ collection:
       - url: "{{ _.AUTH_SERVER_URI }}/connect/token"
         name: 1C. Generate access token - Signup+
         meta:
-          id: req_073dd4cd3d0c4691b0a14c2444980ad0
+          id: req_056c7ed2eaf44ea38fc134173c14e87d
           created: 1723737465425
           modified: 1725547159019
           isPrivate: false
@@ -183,7 +183,7 @@ collection:
       preRequest: ""
   - name: 2. Merchant accounts
     meta:
-      id: fld_649ddb80a2214915bc03a9a44cff4d6c
+      id: fld_189d2e0efb9f400195a167da6f732649
       created: 1707909564665
       modified: 1725378784314
       sortKey: -1635944926822.625
@@ -192,9 +192,9 @@ collection:
       - url: "{{ _.ENVIRONMENT_URI }}/v3/merchant-accounts"
         name: 2A. List merchant accounts
         meta:
-          id: req_a4e6f30f58014987a77b409c2d28e576
+          id: req_bdc31453911741a7bf048da2cabf7cb4
           created: 1707909564665
-          modified: 1757540241143
+          modified: 1757582449341
           isPrivate: false
           description: |-
             ## [See this request in our API reference](https://docs.truelayer.com/reference/list-operating-accounts)
@@ -205,7 +205,7 @@ collection:
         method: GET
         authentication:
           type: bearer
-          token: "{% response 'body', 'req_5b8fc97822bc44dfa8dae20833bf22c1',
+          token: "{% response 'body', 'req_f5ed13d6690347f5a0a58ae7ec483b67',
             'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
         scripts:
           preRequest: ""
@@ -222,7 +222,7 @@ collection:
           ID', '', '', '', false, true %}/transactions"
         name: 2C. Get merchant account transactions
         meta:
-          id: req_5261c89bc06244128678793f4fdc0821
+          id: req_490b03bcf539470eb9f4a3fb5876c8f3
           created: 1707909564666
           modified: 1724949244826
           isPrivate: false
@@ -280,7 +280,7 @@ collection:
           ID', '', '', '', false, true %}"
         name: 2B. Get merchant account details
         meta:
-          id: req_5fc0dd0924cc4a9cbedd216e7c1caaa6
+          id: req_73521dc63cb0465eaae0fbfea00a4409
           created: 1707909564666
           modified: 1724949229909
           isPrivate: false
@@ -310,7 +310,7 @@ collection:
           ID', '', '', '', false, true %}/sweeping"
         name: 2G. Delete sweeping settings
         meta:
-          id: req_48fa0a1f53324c5d8cb54eb4cc0ca27e
+          id: req_34be185ae9c54a578deb3240504b48de
           created: 1707909564667
           modified: 1725547491488
           isPrivate: false
@@ -349,7 +349,7 @@ collection:
           ID', '', '', '', false, true %}/sweeping"
         name: 2D. Set up or update sweeping settings
         meta:
-          id: req_cff85b2db2ba4ee9a9fc4f9ed4806ca4
+          id: req_80dae1aad0514380a1faa716a22c41af
           created: 1707909564667
           modified: 1725547332407
           isPrivate: false
@@ -392,7 +392,7 @@ collection:
           ID', '', '', '', false, true %}/sweeping"
         name: 2E. Set up or update sweeping settings - EUR merchant account
         meta:
-          id: req_56a907a201fc44199574677f620c8ca3
+          id: req_02d9af566538455296fa3fc6736206fa
           created: 1707909564668
           modified: 1725547343519
           isPrivate: false
@@ -436,7 +436,7 @@ collection:
           ID', '', '', '', false, true %}/sweeping"
         name: 2F. Get existing sweeping settings
         meta:
-          id: req_e2987cf9546e49c3a9432223f4dfcafc
+          id: req_64811b6f188549d28df88bad5ab129ab
           created: 1707909564668
           modified: 1725547500483
           isPrivate: false
@@ -475,7 +475,7 @@ collection:
           ID', '', '', '', false, true %}/payment-sources"
         name: 2H. Get merchant account payment sources
         meta:
-          id: req_cce46758d4ea47a3922c065251952aea
+          id: req_eb73764af08a453cbfff339cec47e47f
           created: 1724247859008
           modified: 1725548353269
           isPrivate: false
@@ -514,7 +514,7 @@ collection:
       preRequest: ""
   - name: 4. Payouts
     meta:
-      id: fld_a945cf80f4344105ae453bbb04adfc46
+      id: fld_a4f043a8ec31430494d3c979dc95f1ef
       created: 1707909564668
       modified: 1723734850030
       sortKey: -1635894360826
@@ -522,7 +522,7 @@ collection:
     children:
       - name: Refunds
         meta:
-          id: fld_3fd2f7b2029f4731886606a7993051e1
+          id: fld_eb2c19307c7e47c782c6a7deb1f3eaf6
           created: 1707909564669
           modified: 1707909564669
           sortKey: -1612882494719.7969
@@ -533,7 +533,7 @@ collection:
               true %}"
             name: 4F. Get refund
             meta:
-              id: req_18c4601e58064407b9ce4a8ca819684d
+              id: req_9494245e921f4cc5afcdc13dc6e623b1
               created: 1707909564669
               modified: 1757538213211
               isPrivate: false
@@ -562,7 +562,7 @@ collection:
               false, true %}/refunds"
             name: 4E. Create a refund
             meta:
-              id: req_4d7ea86d91f549b7b424c1e7d732ac04
+              id: req_a6d35ddc376d45ca9929171b3752366a
               created: 1707909564669
               modified: 1757538208051
               isPrivate: false
@@ -609,7 +609,7 @@ collection:
               false, true %}/refunds"
             name: 4G. Get refunds
             meta:
-              id: req_308e6a5aeeaa4628b9f23f3376b23f9c
+              id: req_c8bdc98a022d460490f51c73eb009c8f
               created: 1707909564670
               modified: 1757538218693
               isPrivate: false
@@ -639,7 +639,7 @@ collection:
           preRequest: ""
       - name: "Verified Payout "
         meta:
-          id: fld_b3f3ed1a238e43c3a7b5bbb5f2469c78
+          id: fld_10fc163ae266488bbc5d9768fcbe9063
           created: 1757512432569
           modified: 1757516982582
           sortKey: -1612882494744.7969
@@ -648,9 +648,9 @@ collection:
           - url: "{{ _.ENVIRONMENT_URI }}/v3/payouts"
             name: Create User_determined Payout
             meta:
-              id: req_bbb8dff220ee4516bd38d92fb95bbbb3
+              id: req_fab6b4a767684328a18849ee5b54329c
               created: 1757512432573
-              modified: 1757538224007
+              modified: 1757582662553
               isPrivate: false
               description: ""
               sortKey: -1752832909058
@@ -694,7 +694,7 @@ collection:
                 value: "{% uuid 'v4' %}"
             authentication:
               type: bearer
-              token: "{% response 'body', 'req_487fa8f173e44f9390bdedf75d685df9',
+              token: "{% response 'body', 'req_f5ed13d6690347f5a0a58ae7ec483b67',
                 'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
             scripts:
               preRequest: ""
@@ -715,7 +715,7 @@ collection:
               _.RETURN_URI }}"
             name: Create HPP TVP
             meta:
-              id: req_587c0096e77649718b548563cdead6ee
+              id: req_ffdf03fc89324691bbdeb236d73bcaf5
               created: 1757512432575
               modified: 1757538288488
               isPrivate: false
@@ -755,7 +755,7 @@ collection:
           false, true %}"
         name: 4D. Get payout
         meta:
-          id: req_1486f2ec89924b0fb49e8ec9a2d7e652
+          id: req_7040b441a7f44734b3166777fffaf44f
           created: 1707909564671
           modified: 1757538202479
           isPrivate: false
@@ -790,9 +790,9 @@ collection:
       - url: "{{ _.ENVIRONMENT_URI }}/v3/payouts"
         name: 4A. Create payout to a payment source
         meta:
-          id: req_e812c38aebaa4b20a3be50c39810e728
+          id: req_887725a1e30f4702b05186b3fb9a2772
           created: 1707909564671
-          modified: 1757538184588
+          modified: 1757582645477
           isPrivate: false
           description: |-
             ## [See this request in our API reference](https://docs.truelayer.com/reference/create-payout)
@@ -821,7 +821,7 @@ collection:
             value: "{% uuid 'v4' %}"
         authentication:
           type: bearer
-          token: "{% response 'body', 'req_487fa8f173e44f9390bdedf75d685df9',
+          token: "{% response 'body', 'req_f5ed13d6690347f5a0a58ae7ec483b67',
             'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
         scripts:
           preRequest: ""
@@ -837,7 +837,7 @@ collection:
       - url: "{{ _.ENVIRONMENT_URI }}/v3/payouts"
         name: 4C. Create payout to an external account - IBAN
         meta:
-          id: req_b2ad768b3ce144b0a8e958aea2fec3e9
+          id: req_1ed33715725a47f5905e905a437b8e8a
           created: 1707909564672
           modified: 1757538195267
           isPrivate: false
@@ -895,7 +895,7 @@ collection:
       - url: "{{ _.ENVIRONMENT_URI }}/v3/payouts"
         name: 4B. Create payout to an external account - SCAN
         meta:
-          id: req_ae4f5116cda64f718f8621208351121b
+          id: req_ab7a8e53767348ce8fb7023a5027b890
           created: 1707909564673
           modified: 1757538190119
           isPrivate: false
@@ -956,7 +956,7 @@ collection:
       preRequest: ""
   - name: 6. VRP Mandates and Payments
     meta:
-      id: fld_b703aa4ef89b4a7ab948553c68988cad
+      id: fld_c8faa40859a64ac19bb62b6f6725bf88
       created: 1707909564689
       modified: 1723735093660
       sortKey: -1000000000
@@ -964,7 +964,7 @@ collection:
     children:
       - name: Mandate to external account
         meta:
-          id: fld_149d05ad0859432a9639edb283b4928d
+          id: fld_0a182346a6794e5795f20434667706e4
           created: 1707909564690
           modified: 1723735221406
           sortKey: -1648351513063.5
@@ -972,44 +972,16 @@ collection:
         children:
           - name: Payment on mandate to external account
             meta:
-              id: fld_13e9399374f1461dac7ed735daabd010
+              id: fld_051954d3692f4e23bcf8f906cde8f7fd
               created: 1707909564690
               modified: 1724949036409
               sortKey: 400
               description: ""
             children:
-              - url: "{{ _.ENVIRONMENT_URI }}/v3/payments/{% response 'body',
-                  'req_0e91256025834b58ba5ec3c6f18c9d3d', 'b64::JC5pZA==::46b',
-                  'never', 60 %}"
-                name: 6S. Get payment on a mandate (access token)
-                meta:
-                  id: req_19f2fd49d42948e0b706ee1e09f66cc1
-                  created: 1707909564690
-                  modified: 1724952207779
-                  isPrivate: false
-                  description: |
-                    ## [See this request in our API reference](https://docs.truelayer.com/reference/get-payment-1)
-                  sortKey: -1643121940158.5
-                method: GET
-                authentication:
-                  type: bearer
-                  token: "{% response 'body', 'req_6fc0e9ac772544ab942818fd81300b5e',
-                    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
-                scripts:
-                  preRequest: ""
-                  afterResponse: ""
-                settings:
-                  renderRequestBody: true
-                  encodeUrl: true
-                  followRedirects: global
-                  cookies:
-                    send: true
-                    store: true
-                  rebuildPath: true
               - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
                 name: 6Q. Create payment on a mandate
                 meta:
-                  id: req_ad39b646b3294555b3fb62bfdd923778
+                  id: req_78eb39e921f341bebf43eba7de828532
                   created: 1707909564690
                   modified: 1724952225171
                   isPrivate: false
@@ -1053,9 +1025,37 @@ collection:
               - url: "{{ _.ENVIRONMENT_URI }}/v3/payments/{% response 'body',
                   'req_0e91256025834b58ba5ec3c6f18c9d3d', 'b64::JC5pZA==::46b',
                   'never', 60 %}"
+                name: 6S. Get payment on a mandate (access token)
+                meta:
+                  id: req_d12864da04c446a6b78330b1ead57fd4
+                  created: 1707909564690
+                  modified: 1724952207779
+                  isPrivate: false
+                  description: |
+                    ## [See this request in our API reference](https://docs.truelayer.com/reference/get-payment-1)
+                  sortKey: -1643121940158.5
+                method: GET
+                authentication:
+                  type: bearer
+                  token: "{% response 'body', 'req_6fc0e9ac772544ab942818fd81300b5e',
+                    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: "{{ _.ENVIRONMENT_URI }}/v3/payments/{% response 'body',
+                  'req_0e91256025834b58ba5ec3c6f18c9d3d', 'b64::JC5pZA==::46b',
+                  'never', 60 %}"
                 name: 6R. Get payment on a mandate (resource token)
                 meta:
-                  id: req_78a8fcd59c504b50945c6abecc06b453
+                  id: req_48676ebc0de240f4b63529f5d1ebbcbf
                   created: 1707909564691
                   modified: 1724952213990
                   isPrivate: false
@@ -1084,7 +1084,7 @@ collection:
           - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates"
             name: 6K. Create mandate paying an external account
             meta:
-              id: req_7a0757c1caa84990b89ffce4dd3b206e
+              id: req_16432c0c41c04ee59b1ed30118fb5afb
               created: 1707909564691
               modified: 1724951814201
               isPrivate: false
@@ -1162,11 +1162,45 @@ collection:
                 store: true
               rebuildPath: true
           - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
+              'req_c8bdfe4156f94d16a0c7ae27e5fb1f69', 'b64::JC5pZA==::46b',
+              'never', 60 %}/revoke"
+            name: 6T. Revoke mandate
+            meta:
+              id: req_32b1b056cc8b4306ad70d2f6691ad487
+              created: 1707909564692
+              modified: 1724952406902
+              isPrivate: false
+              description: >
+                ## [See this request in our API
+                reference](https://docs.truelayer.com/reference/revoke-mandate)
+              sortKey: 500
+            method: POST
+            headers:
+              - name: Idempotency-Key
+                value: "{% uuid 'v4' %}"
+              - name: ""
+                value: ""
+            authentication:
+              type: bearer
+              token: "{% response 'body', 'req_6fc0e9ac772544ab942818fd81300b5e',
+                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
               'req_b1f9b99104cd44d0b8944ee0d7687c40', 'b64::JC5pZA==::46b',
               'never', 60 %}/authorization-flow/actions/provider-selection"
             name: 6M. Provider selection
             meta:
-              id: req_06909bb09bea44b5a1e8947225a41f18
+              id: req_51dbe0e193b44827b5112db31e039be9
               created: 1707909564692
               modified: 1724951867303
               isPrivate: false
@@ -1201,45 +1235,11 @@ collection:
                 store: true
               rebuildPath: true
           - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
-              'req_c8bdfe4156f94d16a0c7ae27e5fb1f69', 'b64::JC5pZA==::46b',
-              'never', 60 %}/revoke"
-            name: 6T. Revoke mandate
-            meta:
-              id: req_8ae28bd836b54fdeadf961bb756c386a
-              created: 1707909564692
-              modified: 1724952406902
-              isPrivate: false
-              description: >
-                ## [See this request in our API
-                reference](https://docs.truelayer.com/reference/revoke-mandate)
-              sortKey: 500
-            method: POST
-            headers:
-              - name: Idempotency-Key
-                value: "{% uuid 'v4' %}"
-              - name: ""
-                value: ""
-            authentication:
-              type: bearer
-              token: "{% response 'body', 'req_6fc0e9ac772544ab942818fd81300b5e',
-                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
-            scripts:
-              preRequest: ""
-              afterResponse: ""
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
               'req_b1f9b99104cd44d0b8944ee0d7687c40', 'b64::JC5pZA==::46b',
               'never', 60 %}/authorization-flow"
             name: 6L. Start authorisation flow
             meta:
-              id: req_f053d4f6f8a443529d3117de662e1333
+              id: req_bb0c2a9562a444cf90b6f82b0d55cfc9
               created: 1707909564692
               modified: 1724951838646
               isPrivate: false
@@ -1277,73 +1277,13 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
-              'req_b1f9b99104cd44d0b8944ee0d7687c40', 'b64::JC5pZA==::46b',
-              'never', 60 %}/funds?amount_in_minor={% prompt 'Amount', 'amount',
-              '1', '', false, true %}&currency=GBP"
-            name: 6P. Confirm funds
-            meta:
-              id: req_567e99e68940429d8d911faf1d198613
-              created: 1707909564693
-              modified: 1724952085440
-              isPrivate: false
-              description: |-
-                ## [See this request in our API reference](https://docs.truelayer.com/reference/confirm-mandate-funds)
-
-                This request is meant to be used to confirm the amount of money a PSU has in their account.
-              sortKey: 350
-            method: GET
-            authentication:
-              type: bearer
-              token: "{% response 'body', 'req_6fc0e9ac772544ab942818fd81300b5e',
-                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
-            scripts:
-              preRequest: ""
-              afterResponse: ""
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
-              'req_b1f9b99104cd44d0b8944ee0d7687c40', 'b64::JC5pZA==::46b',
-              'never', 60 %}"
-            name: 6N. Get mandate
-            meta:
-              id: req_8daecb563c1a401887d6abeb9c914fec
-              created: 1707909564693
-              modified: 1724952036013
-              isPrivate: false
-              description: >
-                ## [See this request in our API
-                reference](https://docs.truelayer.com/reference/get-mandate)
-              sortKey: 300
-            method: GET
-            authentication:
-              type: bearer
-              token: "{% response 'body', 'req_6fc0e9ac772544ab942818fd81300b5e',
-                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
-            scripts:
-              preRequest: ""
-              afterResponse: ""
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
           - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates?user_id={% response 'body',
               'req_b1f9b99104cd44d0b8944ee0d7687c40', 'b64::JC51c2VyLmlk::46b',
               'when-expired', 600 %}&limit={% prompt 'Limit', 'mandates per
               page', '25', '', false, true %}"
             name: 6O. List mandates
             meta:
-              id: req_fe90525eb2654db9ad2aa2b1570f50d6
+              id: req_624cedf9ec6b40f8aaa2235be4172337
               created: 1707909564693
               modified: 1724952054399
               isPrivate: false
@@ -1379,12 +1319,72 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
+          - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
+              'req_b1f9b99104cd44d0b8944ee0d7687c40', 'b64::JC5pZA==::46b',
+              'never', 60 %}/funds?amount_in_minor={% prompt 'Amount', 'amount',
+              '1', '', false, true %}&currency=GBP"
+            name: 6P. Confirm funds
+            meta:
+              id: req_7ef9e655bb914958805b344aeec2e4ca
+              created: 1707909564693
+              modified: 1724952085440
+              isPrivate: false
+              description: |-
+                ## [See this request in our API reference](https://docs.truelayer.com/reference/confirm-mandate-funds)
+
+                This request is meant to be used to confirm the amount of money a PSU has in their account.
+              sortKey: 350
+            method: GET
+            authentication:
+              type: bearer
+              token: "{% response 'body', 'req_6fc0e9ac772544ab942818fd81300b5e',
+                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
+              'req_b1f9b99104cd44d0b8944ee0d7687c40', 'b64::JC5pZA==::46b',
+              'never', 60 %}"
+            name: 6N. Get mandate
+            meta:
+              id: req_86561c3ae5d5411bbfa98207b4ce05ca
+              created: 1707909564693
+              modified: 1724952036013
+              isPrivate: false
+              description: >
+                ## [See this request in our API
+                reference](https://docs.truelayer.com/reference/get-mandate)
+              sortKey: 300
+            method: GET
+            authentication:
+              type: bearer
+              token: "{% response 'body', 'req_6fc0e9ac772544ab942818fd81300b5e',
+                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
         scripts:
           afterResponse: ""
           preRequest: ""
       - name: Mandate to merchant account
         meta:
-          id: fld_ec7c4da0dedd42d59daea8a2034eda4a
+          id: fld_c029774404734e988908263f413617c6
           created: 1707909564694
           modified: 1723735214322
           sortKey: -1648351513113.5
@@ -1392,7 +1392,7 @@ collection:
         children:
           - name: Payment on mandate to merchant account
             meta:
-              id: fld_695b1583d3354969ba914ee53be8d9e7
+              id: fld_0dc44a01a4f54bb39911873df9f3b842
               created: 1707909564694
               modified: 1723735209383
               sortKey: 450
@@ -1401,7 +1401,7 @@ collection:
               - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
                 name: 6G. Create payment on a mandate
                 meta:
-                  id: req_546f4049394342649335dac07bb7cfa9
+                  id: req_47f0d2613fc642d6aa3ce7054eaaadaa
                   created: 1707909564694
                   modified: 1724952344172
                   isPrivate: false
@@ -1444,37 +1444,9 @@ collection:
               - url: "{{ _.ENVIRONMENT_URI }}/v3/payments/{% response 'body',
                   'req_434b7677da934a508ba7e071670e062e', 'b64::JC5pZA==::46b',
                   'never', 60 %}"
-                name: 6I. Get payment on a mandate (access token)
-                meta:
-                  id: req_d3e5e61ae01942aebe6cbf50a41fc1fa
-                  created: 1707909564695
-                  modified: 1724952351193
-                  isPrivate: false
-                  description: |
-                    ## [See this request in our API reference](https://docs.truelayer.com/reference/get-payment-1)
-                  sortKey: -1643121940114.75
-                method: GET
-                authentication:
-                  type: bearer
-                  token: "{% response 'body', 'req_e61a49eeb0ed4f2fb5b8074a71ea3f98',
-                    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
-                scripts:
-                  preRequest: ""
-                  afterResponse: ""
-                settings:
-                  renderRequestBody: true
-                  encodeUrl: true
-                  followRedirects: global
-                  cookies:
-                    send: true
-                    store: true
-                  rebuildPath: true
-              - url: "{{ _.ENVIRONMENT_URI }}/v3/payments/{% response 'body',
-                  'req_434b7677da934a508ba7e071670e062e', 'b64::JC5pZA==::46b',
-                  'never', 60 %}"
                 name: 6H. Get payment on a mandate (resource token)
                 meta:
-                  id: req_f646f478502b4e67a0e40365d80336b2
+                  id: req_5850a4c21deb4eecb75a33b7854a7269
                   created: 1707909564695
                   modified: 1724952358865
                   isPrivate: false
@@ -1497,6 +1469,34 @@ collection:
                     send: true
                     store: true
                   rebuildPath: true
+              - url: "{{ _.ENVIRONMENT_URI }}/v3/payments/{% response 'body',
+                  'req_434b7677da934a508ba7e071670e062e', 'b64::JC5pZA==::46b',
+                  'never', 60 %}"
+                name: 6I. Get payment on a mandate (access token)
+                meta:
+                  id: req_6ddbf87dcbee4da891ec664d0861d185
+                  created: 1707909564695
+                  modified: 1724952351193
+                  isPrivate: false
+                  description: |
+                    ## [See this request in our API reference](https://docs.truelayer.com/reference/get-payment-1)
+                  sortKey: -1643121940114.75
+                method: GET
+                authentication:
+                  type: bearer
+                  token: "{% response 'body', 'req_e61a49eeb0ed4f2fb5b8074a71ea3f98',
+                    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
             scripts:
               afterResponse: ""
               preRequest: ""
@@ -1505,7 +1505,7 @@ collection:
               'never', 60 %}/authorization-flow/actions/provider-selection"
             name: 6C. Provider selection
             meta:
-              id: req_70cdd448edf843939daefc2d52c3047b
+              id: req_f967ac62188f4e89a17fa6d9c38f2b97
               created: 1707909564696
               modified: 1724951345365
               isPrivate: false
@@ -1545,7 +1545,7 @@ collection:
               'never', 60 %}/revoke"
             name: 6J. Revoke mandate
             meta:
-              id: req_8ca043ba500a4d55ac81c1ff61d7f9e5
+              id: req_fe1826bc3dd2413bb4998c6e81167c88
               created: 1707909564696
               modified: 1724951736836
               isPrivate: false
@@ -1579,7 +1579,7 @@ collection:
               'never', 60 %}/authorization-flow"
             name: 6B. Start authorisation flow
             meta:
-              id: req_c986345f5e724bbdb4f886b7e10f489a
+              id: req_e6189bf0157444788c4a4db0df9fc82f
               created: 1707909564697
               modified: 1724951302942
               isPrivate: false
@@ -1624,7 +1624,7 @@ collection:
               '1', '', false, true %}&currency=GBP"
             name: 6F. Confirm funds
             meta:
-              id: req_3ce751892bc8478a8edad3b116f61f04
+              id: req_06cb69c7dca84c03a1073977fac24f9c
               created: 1707909564698
               modified: 1724952071276
               isPrivate: false
@@ -1649,41 +1649,13 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
-              'req_599a894d7617486d8f666f33e1ead94c', 'b64::JC5pZA==::46b',
-              'never', 60 %}"
-            name: 6D. Get mandate
-            meta:
-              id: req_851523464e9f47729f4597a65f76b667
-              created: 1707909564698
-              modified: 1724951374524
-              isPrivate: false
-              description: "## [See this request in our API
-                reference](https://docs.truelayer.com/reference/get-mandate)"
-              sortKey: 300
-            method: GET
-            authentication:
-              type: bearer
-              token: "{% response 'body', 'req_e61a49eeb0ed4f2fb5b8074a71ea3f98',
-                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
-            scripts:
-              preRequest: ""
-              afterResponse: ""
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
           - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates?user_id={% response 'body',
               'req_599a894d7617486d8f666f33e1ead94c', 'b64::JC51c2VyLmlk::46b',
               'never', 60 %}&limit={% prompt 'Limit', 'mandates per page', '25',
               '', false, true %}"
             name: 6E. List mandates
             meta:
-              id: req_95f3d15b2588497c8fb0a9b93a123480
+              id: req_9c07190e00334432981e1071c1828ff7
               created: 1707909564698
               modified: 1724951422388
               isPrivate: false
@@ -1719,10 +1691,38 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
+          - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates/{% response 'body',
+              'req_599a894d7617486d8f666f33e1ead94c', 'b64::JC5pZA==::46b',
+              'never', 60 %}"
+            name: 6D. Get mandate
+            meta:
+              id: req_cbb656c0a20843e6b9e22eff38c43640
+              created: 1707909564698
+              modified: 1724951374524
+              isPrivate: false
+              description: "## [See this request in our API
+                reference](https://docs.truelayer.com/reference/get-mandate)"
+              sortKey: 300
+            method: GET
+            authentication:
+              type: bearer
+              token: "{% response 'body', 'req_e61a49eeb0ed4f2fb5b8074a71ea3f98',
+                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 600 %}"
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
           - url: "{{ _.ENVIRONMENT_URI }}/v3/mandates"
             name: 6A. Create mandate paying a merchant account
             meta:
-              id: req_299522b65cce44aca39132f23ed2e69f
+              id: req_91189d43615e4224819788223632615b
               created: 1707909564699
               modified: 1724951275735
               isPrivate: false
@@ -1802,16 +1802,50 @@ collection:
       preRequest: ""
   - name: 5. Payment links
     meta:
-      id: fld_32010b375047472eb647a9b8650aed8d
+      id: fld_8d35750ac217495f8686d9918b2b69e9
       created: 1707909564703
       modified: 1724950244805
       sortKey: -818447180413
       description: ""
     children:
+      - url: "{{ _.ENVIRONMENT_URI }}/v3/payment-links/{% response 'body',
+          'req_766b53a21ecd4117aca62dee88e3bc85', 'b64::JC5pZA==::46b',
+          'when-expired', 60 %}"
+        name: 5B. Get payment link
+        meta:
+          id: req_5b3e9fe3fae143bd9bf4ccf7a0219e72
+          created: 1707909564704
+          modified: 1724950694289
+          isPrivate: false
+          description: >
+            ## [See this request in our API
+            reference](https://docs.truelayer.com/reference/get-payment-link)
+          sortKey: -1690386212164
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: Idempotency-key
+            value: "{% uuid 'v4' %}"
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
+            'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
       - url: "{{ _.ENVIRONMENT_URI }}/v3/payment-links"
         name: 5A. Create a payment link
         meta:
-          id: req_02fdb6d3221f4b0088bdf7b7565b36e9
+          id: req_8d842a3f400741af80f557da6892364c
           created: 1707909564704
           modified: 1724950711607
           isPrivate: false
@@ -1917,44 +1951,10 @@ collection:
           rebuildPath: true
       - url: "{{ _.ENVIRONMENT_URI }}/v3/payment-links/{% response 'body',
           'req_766b53a21ecd4117aca62dee88e3bc85', 'b64::JC5pZA==::46b',
-          'when-expired', 60 %}"
-        name: 5B. Get payment link
-        meta:
-          id: req_d8b6ef1357e341c886bb0f0ddf204490
-          created: 1707909564704
-          modified: 1724950694289
-          isPrivate: false
-          description: >
-            ## [See this request in our API
-            reference](https://docs.truelayer.com/reference/get-payment-link)
-          sortKey: -1690386212164
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: Idempotency-key
-            value: "{% uuid 'v4' %}"
-        authentication:
-          type: bearer
-          token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
-            'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
-        scripts:
-          preRequest: ""
-          afterResponse: ""
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.ENVIRONMENT_URI }}/v3/payment-links/{% response 'body',
-          'req_766b53a21ecd4117aca62dee88e3bc85', 'b64::JC5pZA==::46b',
           'when-expired', 3600 %}/payments"
         name: 5C. Get payment link payments
         meta:
-          id: req_f060604a1aa44ad294cd3f8de930324d
+          id: req_2943cddeaa8540a1ad7ef33b7de48b9f
           created: 1724950263207
           modified: 1724950956481
           isPrivate: false
@@ -1982,7 +1982,7 @@ collection:
       preRequest: ""
   - name: 8. Payments API V3 providers endpoint
     meta:
-      id: fld_c8b8c50d16d54d4fa38ec44ec36e20df
+      id: fld_f44f01d0aee848ca8bc15f790d838783
       created: 1707909564706
       modified: 1724953443630
       sortKey: -499999775
@@ -1991,7 +1991,7 @@ collection:
       - url: "{{ _.ENVIRONMENT_URI }}/v3/payments-providers/"
         name: 8C. Get a payments provider
         meta:
-          id: req_83d79aebcc67460db07f883bc4647e2f
+          id: req_071ee4e4c0134768b812e820e9e32183
           created: 1707909564706
           modified: 1724953533809
           isPrivate: false
@@ -2029,7 +2029,7 @@ collection:
       - url: "{{ _.ENVIRONMENT_URI }}/v3/payments-providers/search"
         name: 8B. Get a list of providers - with user form in authorisation flow
         meta:
-          id: req_b0b68a9bb986446693a9ee761007fe46
+          id: req_9c3317c7e90d467281fb05e57f6243dc
           created: 1707909564707
           modified: 1724953516825
           isPrivate: false
@@ -2095,7 +2095,7 @@ collection:
       - url: "{{ _.ENVIRONMENT_URI }}/v3/payments-providers/search"
         name: 8A. Get a list of providers
         meta:
-          id: req_49d9e0ec3f844b15afb2ee4c81f7a706
+          id: req_31f11ff7546d43d69b4cb4c00870c3c9
           created: 1707910287142
           modified: 1757538333672
           isPrivate: false
@@ -2150,7 +2150,7 @@ collection:
       preRequest: ""
   - name: 7. Signup+
     meta:
-      id: fld_2280c9af95df447a9025b75d4f1447b4
+      id: fld_64aebd5881b1475abf3549c53d53a84f
       created: 1723737282321
       modified: 1723737306855
       sortKey: -749999887.5
@@ -2158,7 +2158,7 @@ collection:
     children:
       - name: Standard pay-in
         meta:
-          id: fld_a2a393f422df4a5ba309c02920560236
+          id: fld_f939ea4475c5480ea1b9124191392bd3
           created: 1723737402203
           modified: 1724949075968
           sortKey: -1723737402203
@@ -2167,7 +2167,7 @@ collection:
           - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
             name: 7A. Create payment
             meta:
-              id: req_ce7791bcadc24f98b9582ca867a1cd2a
+              id: req_c3a2be29c8384f08aaa5ab5ac0222691
               created: 1723737370397
               modified: 1725551390687
               isPrivate: false
@@ -2278,7 +2278,7 @@ collection:
               %}&return_uri={{ _.RETURN_URI }}
             name: 7B. Create HPP
             meta:
-              id: req_6a99e9f50924443babd346692cefe92b
+              id: req_de67cd92f4ff45cfbc32cca19fa17678
               created: 1723738360000
               modified: 1724159426692
               isPrivate: false
@@ -2322,7 +2322,7 @@ collection:
           - url: "{{ _.ENVIRONMENT_URI }}/signup-plus/payments"
             name: 7C. Get Signup+ data for standard payment
             meta:
-              id: req_5a0b55fb619f4b07bb1a3aef2406e139
+              id: req_786575421f374319890eca082d0ea719
               created: 1723738498092
               modified: 1725551373906
               isPrivate: false
@@ -2371,7 +2371,7 @@ collection:
           preRequest: ""
       - name: Pay-in with age verification
         meta:
-          id: fld_dee2532ef7854378b2f2a27607afe802
+          id: fld_dd1177ab82c145be9dc6c2d858d11aec
           created: 1723738444182
           modified: 1723738444182
           sortKey: -1696560922592.5
@@ -2380,7 +2380,7 @@ collection:
           - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
             name: 7D. Create payment
             meta:
-              id: req_e510c95c851942279633ff318e85e003
+              id: req_187a028690bf4464ac156382d6fa0a9e
               created: 1723738444185
               modified: 1725551491872
               isPrivate: false
@@ -2497,7 +2497,7 @@ collection:
               %}&return_uri={{ _.RETURN_URI }}
             name: 7E. Create HPP
             meta:
-              id: req_098d5d5875e64e36a4ecd6c8e4e5bc68
+              id: req_a2a9ad6b0be74b24867d3861d718341b
               created: 1723738444187
               modified: 1724159438452
               isPrivate: false
@@ -2541,7 +2541,7 @@ collection:
           - url: "{{ _.ENVIRONMENT_URI }}/signup-plus/payments"
             name: 7F. Get data for age-verified payment
             meta:
-              id: req_e43beb01e4d24f1e92cccdec65d7aea9
+              id: req_e6b0a78d007748f8bcb92082b160fabc
               created: 1724083150124
               modified: 1725551564370
               isPrivate: false
@@ -2593,7 +2593,7 @@ collection:
       preRequest: ""
   - name: 3. Pay-Ins
     meta:
-      id: fld_c3964cfaf53d40e593f45fca14f0c725
+      id: fld_b0a12812e1364da29ab3d6354c0cd8d7
       created: 1757511721996
       modified: 1757511798816
       sortKey: -1635910952791.5918
@@ -2601,18 +2601,18 @@ collection:
     children:
       - name: 3B. Create a payment to an External Account
         meta:
-          id: fld_233f9e349ca84e4b88b1243fc7a7afdb
+          id: fld_84a2227b591543ccbc0b1ff4f47ebe78
           created: 1757511721999
           modified: 1757539145028
           sortKey: -1635952895766
           description: ""
         children:
-          - name: Pay-in with Hosted Payment Page
+          - name: 3B.1 Pay-in with Hosted Payment Page builder
             meta:
-              id: fld_70c6585975694de597e0677f611b32ab
+              id: fld_85d878f270cf4f96ae1a76798306cf9c
               created: 1757511721999
-              modified: 1757511721999
-              sortKey: -1647882182551
+              modified: 1757583176463
+              sortKey: -1757583120591
               description: ""
             children:
               - url: https://payment.truelayer-sandbox.com/payments#payment_id={% response
@@ -2623,7 +2623,7 @@ collection:
                   %}&return_uri={{ _.RETURN_URI }}
                 name: Create HPP
                 meta:
-                  id: req_31581c7bc5fb46d49df3f2a2383076dd
+                  id: req_010b93fe2c334ff992912aac9eb02491
                   created: 1757511722001
                   modified: 1757512260970
                   isPrivate: false
@@ -2659,7 +2659,7 @@ collection:
               - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
                 name: Create Payment
                 meta:
-                  id: req_ad2c27d9826345e783e4c3b27690fa2a
+                  id: req_3528c4c5d1e8448a9dd2db4503ab07c5
                   created: 1757511722005
                   modified: 1757538163839
                   isPrivate: false
@@ -2720,7 +2720,7 @@ collection:
               - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
                 name: Create Payment - Preselected sandbox provider
                 meta:
-                  id: req_fd9e53d0b21d4d569bb110d75b4f4e16
+                  id: req_7f7059fecc084ac283f73bfb5b569d8f
                   created: 1757511722005
                   modified: 1757538175656
                   isPrivate: false
@@ -2800,7 +2800,7 @@ collection:
                   %}&return_uri={{ _.RETURN_URI }}
                 name: Create HPP - Preselected sandbox provider
                 meta:
-                  id: req_52233ccb45d04dadae8e3294bd0ec532
+                  id: req_f64880af7e514ce3a00be0f65f4eaf60
                   created: 1757511722006
                   modified: 1757511722006
                   isPrivate: false
@@ -2836,182 +2836,190 @@ collection:
             scripts:
               afterResponse: ""
               preRequest: ""
-          - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
-            name: Create EXT Payment with hosted_page object
+          - name: 3B.2. Pay-In with 'hosted_page' object
             meta:
-              id: req_fb94c0d44d714d6cae30616626af7dab
-              created: 1757517385049
-              modified: 1757538148678
-              isPrivate: false
+              id: fld_61e9294e5830458babb59e4d465fedaa
+              created: 1757583120491
+              modified: 1757583120491
+              sortKey: -1757583120491
               description: ""
-              sortKey: -1647882182651
-            method: POST
-            body:
-              mimeType: application/json
-              text: |-
-                {
-                	"amount_in_minor": 1,
-                	"currency": "GBP",
-                	"payment_method": {
-                		"provider_selection": {
-                			"type": "user_selected"
-                		},
-                		"type": "bank_transfer",
-                		"beneficiary": {
-                			"type": "external_account",
-                			"account_holder_name": "John Sandbridge",
-                			"reference": "Test Reference",
-                			"account_identifier": {
-                				"type": "sort_code_account_number",
-                				"sort_code": "040668",
-                				"account_number": "00000871"
-                			}
-                		},
-                		"metadata": {
-                			"newKey": "Optional Metadata"
-                		}
-                	},
-                	"hosted_page": {
-                    "country_code": "GB",
-                    "return_uri": "http://localhost:8080/redirect.php",
-                    "language_code": "en"
-                  },
-                	"user": {
-                		"name": "John Sandbridge",
-                		"email": "john@sandbridge.com",
-                		"phone": "+44123456789"
-                	}
-                }
-            headers:
-              - name: Content-Type
-                value: application/json
-              - name: Idempotency-Key
-                value: "{% uuid 'v4' %}"
-            authentication:
-              type: bearer
-              token: "{% response 'body', 'req_487fa8f173e44f9390bdedf75d685df9',
-                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
-            scripts:
-              preRequest: ""
-              afterResponse: ""
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
-            name: Create EXT Payment - Preselected sandbox with hosted_page obj
-            meta:
-              id: req_8ef9ef13aa584fa5825710795c99abad
-              created: 1757517442779
-              modified: 1757538156100
-              isPrivate: false
-              description: >
-                Use the GET \merchant-accounts end point from the Merchants API
-                to get your Account ID
-              sortKey: -1647882182601
-            method: POST
-            body:
-              mimeType: application/json
-              text: |-
-                {
-                	"amount_in_minor": 1,
-                	"currency": "GBP",
-                	"payment_method": {
-                		"type": "bank_transfer",
-                		"provider_selection": {
-                			"type": "preselected",
-                			"provider_id": "mock-payments-gb-redirect",
-                			"scheme_selection": {
-                				"type": "instant_preferred"
-                			},
-                			"remitter": {
-                				"account_identifier": {
-                					"type": "sort_code_account_number",
-                					"sort_code": "123456",
-                					"account_number": "12345678"
-                				},
-                				"account_holder_name": "Optional Remitter object"
-                			}
-                		},
-                		"beneficiary": {
-                			"type": "external_account",
-                			"account_holder_name": "Federico Casali",
-                			"reference": "Test Reference",
-                			"account_identifier": {
-                				"type": "sort_code_account_number",
-                				"sort_code": "123456",
-                				"account_number": "12345678"
-                			}
-                		}
-                	},
-                	"metadata": {
-                		"newKey": "Optional Metadata"
-                	},
-                	"hosted_page": {
-                    "country_code": "GB",
-                    "return_uri": "http://localhost:8080/redirect.php",
-                    "language_code": "en"
-                  },
-                	"user": {
-                		"id": "f61c0ec7-0f83-414e-8e5f-aace86e0ed35",
-                		"name": "Jonathan Sandbridge",
-                		"email": "john@sandbridge.com"
-                	}
-                }
-            headers:
-              - name: Content-Type
-                value: application/json
-              - name: Idempotency-Key
-                value: "{% uuid 'v4' %}"
-            authentication:
-              type: bearer
-              token: "{% response 'body', 'req_487fa8f173e44f9390bdedf75d685df9',
-                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
-            scripts:
-              preRequest: ""
-              afterResponse: ""
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
+            children:
+              - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
+                name: Create EXT Payment with hosted_page object
+                meta:
+                  id: req_26051adc32f44149805b8322c0b19f87
+                  created: 1757517385049
+                  modified: 1757583141845
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1757583131705
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"amount_in_minor": 1,
+                    	"currency": "GBP",
+                    	"payment_method": {
+                    		"provider_selection": {
+                    			"type": "user_selected"
+                    		},
+                    		"type": "bank_transfer",
+                    		"beneficiary": {
+                    			"type": "external_account",
+                    			"account_holder_name": "John Sandbridge",
+                    			"reference": "Test Reference",
+                    			"account_identifier": {
+                    				"type": "sort_code_account_number",
+                    				"sort_code": "040668",
+                    				"account_number": "00000871"
+                    			}
+                    		},
+                    		"metadata": {
+                    			"newKey": "Optional Metadata"
+                    		}
+                    	},
+                    	"hosted_page": {
+                        "country_code": "GB",
+                        "return_uri": "http://localhost:8080/redirect.php",
+                        "language_code": "en"
+                      },
+                    	"user": {
+                    		"name": "John Sandbridge",
+                    		"email": "john@sandbridge.com",
+                    		"phone": "+44123456789"
+                    	}
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: Idempotency-Key
+                    value: "{% uuid 'v4' %}"
+                authentication:
+                  type: bearer
+                  token: "{% response 'body', 'req_487fa8f173e44f9390bdedf75d685df9',
+                    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
+                name: Create EXT Payment - Preselected sandbox with hosted_page obj
+                meta:
+                  id: req_aeac387e16ed47b3919db156c1578220
+                  created: 1757517442779
+                  modified: 1757583139202
+                  isPrivate: false
+                  description: >
+                    Use the GET \merchant-accounts end point from the Merchants
+                    API to get your Account ID
+                  sortKey: -1757583131605
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"amount_in_minor": 1,
+                    	"currency": "GBP",
+                    	"payment_method": {
+                    		"type": "bank_transfer",
+                    		"provider_selection": {
+                    			"type": "preselected",
+                    			"provider_id": "mock-payments-gb-redirect",
+                    			"scheme_selection": {
+                    				"type": "instant_preferred"
+                    			},
+                    			"remitter": {
+                    				"account_identifier": {
+                    					"type": "sort_code_account_number",
+                    					"sort_code": "123456",
+                    					"account_number": "12345678"
+                    				},
+                    				"account_holder_name": "Optional Remitter object"
+                    			}
+                    		},
+                    		"beneficiary": {
+                    			"type": "external_account",
+                    			"account_holder_name": "Federico Casali",
+                    			"reference": "Test Reference",
+                    			"account_identifier": {
+                    				"type": "sort_code_account_number",
+                    				"sort_code": "123456",
+                    				"account_number": "12345678"
+                    			}
+                    		}
+                    	},
+                    	"metadata": {
+                    		"newKey": "Optional Metadata"
+                    	},
+                    	"hosted_page": {
+                        "country_code": "GB",
+                        "return_uri": "http://localhost:8080/redirect.php",
+                        "language_code": "en"
+                      },
+                    	"user": {
+                    		"id": "f61c0ec7-0f83-414e-8e5f-aace86e0ed35",
+                    		"name": "Jonathan Sandbridge",
+                    		"email": "john@sandbridge.com"
+                    	}
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: Idempotency-Key
+                    value: "{% uuid 'v4' %}"
+                authentication:
+                  type: bearer
+                  token: "{% response 'body', 'req_487fa8f173e44f9390bdedf75d685df9',
+                    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
         scripts:
           afterResponse: ""
           preRequest: ""
       - name: 3A. Pay-In to Merchant Account
         meta:
-          id: fld_f9817b1c162745f6a8e2f01841b7d470
+          id: fld_938bdff2663b4430b160b11769c78d97
           created: 1757511722006
           modified: 1757539135538
           sortKey: -1647883794652
           description: ""
         children:
-          - name: Pay-in with Hosted Payment Page
+          - name: 3A.1. Pay-in with Hosted Payment Page builder
             meta:
-              id: fld_380458a0df2b4525973e536649267b46
+              id: fld_49e230a61098427ca42a083f072fcd85
               created: 1757511722007
-              modified: 1757511722007
-              sortKey: -1647885020011
+              modified: 1757583085231
+              sortKey: -1757583014676
               description: ""
             children:
               - url: https://payment.truelayer-sandbox.com/payments#payment_id={% response
-                  'body', 'req_ef72468482d047ecbb29b7aa1df23fb9',
+                  'body', 'req_621a723ed0434737a0ff0878ea72b4bc',
                   'b64::JC5pZA==::46b', 'never', 60 %}&resource_token={%
-                  response 'body', 'req_ef72468482d047ecbb29b7aa1df23fb9',
+                  response 'body', 'req_621a723ed0434737a0ff0878ea72b4bc',
                   'b64::JC5yZXNvdXJjZV90b2tlbg==::46b', 'never', 60
                   %}&return_uri={{ _.RETURN_URI }}
                 name: Create HPP
                 meta:
-                  id: req_dbd027fc97d54d46b8b3afbfeda70e86
+                  id: req_33dbce6716e943f1ba13003518dfe4b0
                   created: 1757511722008
-                  modified: 1757539045021
+                  modified: 1757583311196
                   isPrivate: false
                   description: |-
                     How to create and use the HPP url: 
@@ -3029,7 +3037,7 @@ collection:
                     value: text/plain
                 authentication:
                   type: bearer
-                  token: "{% response 'body', 'req_bd2c0a4121704752a13491d87728f8c9',
+                  token: "{% response 'body', 'req_f5ed13d6690347f5a0a58ae7ec483b67',
                     'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 3600 %}"
                 scripts:
                   preRequest: ""
@@ -3045,9 +3053,9 @@ collection:
               - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
                 name: Create Payment
                 meta:
-                  id: req_ef72468482d047ecbb29b7aa1df23fb9
+                  id: req_621a723ed0434737a0ff0878ea72b4bc
                   created: 1757511722008
-                  modified: 1757540382748
+                  modified: 1757583365160
                   isPrivate: false
                   description: ""
                   sortKey: -1647883846405
@@ -3099,7 +3107,7 @@ collection:
                     value: "{% uuid 'v4' %}"
                 authentication:
                   type: bearer
-                  token: "{% response 'body', 'req_5b8fc97822bc44dfa8dae20833bf22c1',
+                  token: "{% response 'body', 'req_f5ed13d6690347f5a0a58ae7ec483b67',
                     'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
                 scripts:
                   preRequest: ""
@@ -3115,7 +3123,7 @@ collection:
               - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
                 name: Create Payment - Preselected sandbox provider
                 meta:
-                  id: req_18329949a3244f82b8642d8fc061502a
+                  id: req_271464e818a347ec992ed9b9666ebbaa
                   created: 1757511722009
                   modified: 1757511995989
                   isPrivate: false
@@ -3200,7 +3208,7 @@ collection:
                   %}&return_uri={{ _.RETURN_URI }}
                 name: Create HPP - Preselected sandbox provider
                 meta:
-                  id: req_8fb027153dd04101aa2a93892e2d2c4b
+                  id: req_143ce93f6bb044e0aac1e750e29e9ba8
                   created: 1757511722010
                   modified: 1757539358608
                   isPrivate: false
@@ -3236,166 +3244,174 @@ collection:
             scripts:
               afterResponse: ""
               preRequest: ""
-          - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
-            name: Create Payment with hosted_page object
+          - name: 3A.2. Pay-in with 'hosted_page' object
             meta:
-              id: req_7d200046587e4382abf78aea8c5fb3b4
-              created: 1757517231510
-              modified: 1757538927871
-              isPrivate: false
+              id: fld_1005f5b1fe6e42f1b89699ece0f44884
+              created: 1757583014576
+              modified: 1757583043275
+              sortKey: -1757583014576
               description: ""
-              sortKey: -1647885020111
-            method: POST
-            body:
-              mimeType: application/json
-              text: >-
-                {
-                	"amount_in_minor": 1,
-                	"currency": "GBP",
-                	"payment_method": {
-                		"provider_selection": {
-                			"type": "user_selected"
-                		},
-                		"filter": {
-                			"countries": [
-                				"GB"
-                			]
-                		},
-                		"type": "bank_transfer",
-                		"beneficiary": {
-                			"type": "merchant_account",
-                			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}",
-                			"reference": "Test Reference"
-                		}
-                	},
-                	"metadata": {
-                		"newKey": "Optional Metadata"
-                	},
-                	 "hosted_page": {
-                    "country_code": "GB",
-                    "return_uri": "http://localhost:8080/redirect.php",
-                    "language_code": "en"
-                  },
-                	"user": {
-                		"id": "f61c0ec7-0f83-414e-8e5f-aace86e0ed35",
-                		"name": "Jonathan Sandbridge",
-                		"email": "john@sandbridge.com",
-                		"phone": "+44123456789",
-                		"date_of_birth": "1992-11-28",
-                		"address": {
-                			"address_line1": "40 Finsbury Square",
-                			"city": "London",
-                			"state": "London",
-                			"zip": "EC2A 1PX",
-                			"country_code": "GB"
-                		}
-                	}
-                }
-            headers:
-              - name: Content-Type
-                value: application/json
-              - name: Idempotency-Key
-                value: "{% uuid 'v4' %}"
-            authentication:
-              type: bearer
-              token: "{% response 'body', 'req_5b8fc97822bc44dfa8dae20833bf22c1',
-                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
-            scripts:
-              preRequest: ""
-              afterResponse: ""
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
-            name: Create Payment - Preselected sandbox with hosted_page obj
-            meta:
-              id: req_31d8b9fa960743419483e0d109d956e0
-              created: 1757517303155
-              modified: 1757539203336
-              isPrivate: false
-              description: >
-                Use the GET \merchant-accounts end point from the Merchants API
-                to get your Account ID
-              sortKey: -1647885020061
-            method: POST
-            body:
-              mimeType: application/json
-              text: >-
-                {
-                	"amount_in_minor": 1,
-                	"currency": "GBP",
-                	"payment_method": {
-                		"type": "bank_transfer",
-                		"provider_selection": {
-                			"type": "preselected",
-                			"provider_id": "mock-payments-gb-redirect",
-                			"scheme_selection": {
-                				"type": "instant_preferred"
-                			},
-                			"remitter": {
-                				"account_identifier": {
-                					"type": "sort_code_account_number",
-                					"sort_code": "123456",
-                					"account_number": "12345678"
-                				},
-                				"account_holder_name": "Optional Remitter object"
-                			}
-                		},
-                		"beneficiary": {
-                			"type": "merchant_account",
-                			"account_holder_name": "Merchant Account name",
-                			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}",
-                			"reference": "Test Reference"
-                		}
-                	},
-                	"metadata": {
-                		"newKey": "Optional Metadata"
-                	},
-                	 "hosted_page": {
-                    "country_code": "GB",
-                    "return_uri": "http://localhost:8080/redirect.php",
-                    "language_code": "en"
-                  },
-                	"user": {
-                		"id": "f61c0ec7-0f83-414e-8e5f-aace86e0ed35",
-                		"name": "Jonathan Sandbridge",
-                		"email": "john@sandbridge.com",
-                		"phone": "+44123456789",
-                		"date_of_birth": "1992-11-28",
-                		"address": {
-                			"address_line1": "40 Finsbury Square",
-                			"city": "London",
-                			"state": "London",
-                			"zip": "EC2A 1PX",
-                			"country_code": "GB"
-                		}
-                	}
-                }
-            headers:
-              - name: Content-Type
-                value: application/json
-              - name: Idempotency-Key
-                value: "{% uuid 'v4' %}"
-            authentication:
-              type: bearer
-              token: "{% response 'body', 'req_5b8fc97822bc44dfa8dae20833bf22c1',
-                'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
-            scripts:
-              preRequest: ""
-              afterResponse: ""
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
+            children:
+              - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
+                name: Create Payment with hosted_page object
+                meta:
+                  id: req_626bfd76052f4a1a99b4a3dce9b36461
+                  created: 1757517231510
+                  modified: 1757583075056
+                  isPrivate: false
+                  description: ""
+                  sortKey: -1757583055026
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: >-
+                    {
+                    	"amount_in_minor": 1,
+                    	"currency": "GBP",
+                    	"payment_method": {
+                    		"provider_selection": {
+                    			"type": "user_selected"
+                    		},
+                    		"filter": {
+                    			"countries": [
+                    				"GB"
+                    			]
+                    		},
+                    		"type": "bank_transfer",
+                    		"beneficiary": {
+                    			"type": "merchant_account",
+                    			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}",
+                    			"reference": "Test Reference"
+                    		}
+                    	},
+                    	"metadata": {
+                    		"newKey": "Optional Metadata"
+                    	},
+                    	 "hosted_page": {
+                        "country_code": "GB",
+                        "return_uri": "http://localhost:8080/redirect.php",
+                        "language_code": "en"
+                      },
+                    	"user": {
+                    		"id": "f61c0ec7-0f83-414e-8e5f-aace86e0ed35",
+                    		"name": "Jonathan Sandbridge",
+                    		"email": "john@sandbridge.com",
+                    		"phone": "+44123456789",
+                    		"date_of_birth": "1992-11-28",
+                    		"address": {
+                    			"address_line1": "40 Finsbury Square",
+                    			"city": "London",
+                    			"state": "London",
+                    			"zip": "EC2A 1PX",
+                    			"country_code": "GB"
+                    		}
+                    	}
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: Idempotency-Key
+                    value: "{% uuid 'v4' %}"
+                authentication:
+                  type: bearer
+                  token: "{% response 'body', 'req_f5ed13d6690347f5a0a58ae7ec483b67',
+                    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: "{{ _.ENVIRONMENT_URI }}/v3/payments"
+                name: Create Payment - Preselected sandbox with hosted_page obj
+                meta:
+                  id: req_8b1e1021168c429dbdacf4ee84c4f86a
+                  created: 1757517303155
+                  modified: 1757583055016
+                  isPrivate: false
+                  description: >
+                    Use the GET \merchant-accounts end point from the Merchants
+                    API to get your Account ID
+                  sortKey: -1757583054926
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: >-
+                    {
+                    	"amount_in_minor": 1,
+                    	"currency": "GBP",
+                    	"payment_method": {
+                    		"type": "bank_transfer",
+                    		"provider_selection": {
+                    			"type": "preselected",
+                    			"provider_id": "mock-payments-gb-redirect",
+                    			"scheme_selection": {
+                    				"type": "instant_preferred"
+                    			},
+                    			"remitter": {
+                    				"account_identifier": {
+                    					"type": "sort_code_account_number",
+                    					"sort_code": "123456",
+                    					"account_number": "12345678"
+                    				},
+                    				"account_holder_name": "Optional Remitter object"
+                    			}
+                    		},
+                    		"beneficiary": {
+                    			"type": "merchant_account",
+                    			"account_holder_name": "Merchant Account name",
+                    			"merchant_account_id": "{% prompt 'Beneficiary Merchant Account ID', 'Please get your merchant_account_id by calling the GET List Merchant Accounts endpoint. ', '', '', false, true %}",
+                    			"reference": "Test Reference"
+                    		}
+                    	},
+                    	"metadata": {
+                    		"newKey": "Optional Metadata"
+                    	},
+                    	 "hosted_page": {
+                        "country_code": "GB",
+                        "return_uri": "http://localhost:8080/redirect.php",
+                        "language_code": "en"
+                      },
+                    	"user": {
+                    		"id": "f61c0ec7-0f83-414e-8e5f-aace86e0ed35",
+                    		"name": "Jonathan Sandbridge",
+                    		"email": "john@sandbridge.com",
+                    		"phone": "+44123456789",
+                    		"date_of_birth": "1992-11-28",
+                    		"address": {
+                    			"address_line1": "40 Finsbury Square",
+                    			"city": "London",
+                    			"state": "London",
+                    			"zip": "EC2A 1PX",
+                    			"country_code": "GB"
+                    		}
+                    	}
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: Idempotency-Key
+                    value: "{% uuid 'v4' %}"
+                authentication:
+                  type: bearer
+                  token: "{% response 'body', 'req_f5ed13d6690347f5a0a58ae7ec483b67',
+                    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+                scripts:
+                  preRequest: ""
+                  afterResponse: ""
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
         scripts:
           afterResponse: ""
           preRequest: ""
@@ -3403,7 +3419,7 @@ collection:
           false, true %}"
         name: Get Payment status
         meta:
-          id: req_473fb86532b54e168c3e75959eb261fb
+          id: req_2955443e14a449968fc4b48b6a7d55ee
           created: 1757511722011
           modified: 1757511816876
           isPrivate: false
@@ -3429,7 +3445,7 @@ collection:
           prompt 'Payment ID', 'Insert PaymentID', '', '', false, true %}"
         name: Get Signup plus
         meta:
-          id: req_fb15663f17664e49bdc137aa666ae97e
+          id: req_390ab288c14c4820b3aa30b97eeb8fba
           created: 1757511722011
           modified: 1757511824537
           isPrivate: false
@@ -3455,7 +3471,7 @@ collection:
           false, true %}/actions/cancel"
         name: Cancel Payment
         meta:
-          id: req_98ac83f2d04e4b3db1cafc92212cada4
+          id: req_37c662525af64c5bb4b28db685f2b0b3
           created: 1757511722012
           modified: 1757511829731
           isPrivate: false
@@ -3491,27 +3507,27 @@ collection:
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_14d08e3dfd7049799c3ed6d599437388
+    id: jar_373faa6eb4494e309da449f024fb7eeb
     created: 1707909564660
     modified: 1707909564660
 environments:
   name: Base Environment
   meta:
-    id: env_c3863031d5c64f49af3e5177e84bdcdb
+    id: env_8212535cc6aa4bc9a7821fc8730fab53
     created: 1707909564656
     modified: 1707909564656
     isPrivate: false
   subEnvironments:
     - name: Production Sample Env
       meta:
-        id: env_af600cc94d144c3c9c99ef058dcebcf2
+        id: env_69a65296c6db487d960f07d0b9b81db3
         created: 1707909564657
         modified: 1707909564657
         isPrivate: false
         sortKey: 1690384195128
     - name: Sandbox Sample Env
       meta:
-        id: env_a3b437f1a74842a1afb6c949d8e981be
+        id: env_f1a16ac90e1443588491e5443eeb0324
         created: 1707909564658
         modified: 1725445953605
         isPrivate: false
